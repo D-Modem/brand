@@ -32,8 +32,9 @@ full name.
 | Green | CD-i | `#3ddc84` | [menu](https://github.com/D-Modem/menu) |
 | Blue | CD Extra | `#3d8bff` | [bbs](https://github.com/D-Modem/bbs) |
 | Purple | DDCD | `#a66bff` | [go3270](https://github.com/D-Modem/go3270) |
+| White | Video CD | `#f2f4fa` | [brand](https://github.com/D-Modem/brand) |
 
-White (Video CD), Beige (Photo CD) and Scarlet (SACD) are free for future
+Beige (Photo CD) and Scarlet (SACD) are free for future
 repositories.
 
 Neutrals: background `#0a0f1c`, panel `#121a2e`, text `#e8f0ff`, muted
@@ -56,6 +57,7 @@ like the mark, with the white carrier inside. It is drawn on Android's
 | ![D-Modem](social/D-Modem.png) | ![hardware](social/hardware.png) |
 | ![app](social/app.png) | ![menu](social/menu.png) |
 | ![bbs](social/bbs.png) | ![go3270](social/go3270.png) |
+| ![brand](social/brand.png) | |
 
 ## Uploading to GitHub
 

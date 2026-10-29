@@ -30,6 +30,10 @@ REPOS = {
     "menu":     dict(book="Green", color=BOOK["Green"][1], icon="menu",
                      tag="modemmenu", sub="Login and menu for dial-up callers.",
                      chips=["Go", "PAM", "LDAP", "SQL", "PPP"]),
+    # the White Book (Video CD), one of the free ones, for the brand itself
+    "brand":    dict(book="White", color="#f2f4fa", icon="books",
+                     tag="Logos, colours and type", sub="The mark, the Rainbow Books, Sauce Code Pro.",
+                     chips=["SVG", "PNG", "Rainbow Books", "Sauce Code Pro"]),
 }
 
 
@@ -176,6 +180,16 @@ def icon(kind, c):
 <text x="56" y="172" font-family="{FONT}" font-size="22" fill="{DIM}">2) PPP</text>
 <text x="56" y="206" font-family="{FONT}" font-size="22" fill="{DIM}">3) Shell</text>
 '''
+    if kind == "books":
+        # the six Rainbow Books standing on a shelf, each spine banded like a book's
+        spines = ""
+        for i, (_, _, col) in enumerate(BOOKS):
+            x, top = 46 + i * 36, 58 + (i % 3) * 10
+            spines += (f'<rect x="{x}" y="{top}" width="30" height="{240 - top}" rx="4" fill="{col}"/>'
+                       f'<rect x="{x}" y="{top + 18}" width="30" height="5" fill="{BG}" fill-opacity="0.45"/>'
+                       f'<rect x="{x}" y="{208}" width="30" height="5" fill="{BG}" fill-opacity="0.45"/>')
+        return f'''{spines}
+<rect x="30" y="240" width="240" height="12" rx="6" fill="{c}"/>'''
     raise ValueError(kind)
 
 
