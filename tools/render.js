@@ -1,5 +1,5 @@
 // Renders avatar/*.svg and social/*.svg to PNGs next to them, using Playwright's Chromium.
-// The avatar also gets a 2x (1000px) export. Needs JetBrains Mono installed for the text.
+// The avatar also gets a 2x (1000px) export. Needs Sauce Code Pro (Nerd Font Mono) installed for the text.
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');

@@ -4,7 +4,7 @@ import math, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BG, BG2, INK, DIM = "#0a0f1c", "#121a2e", "#e8f0ff", "#7f8bab"
-FONT = "'JetBrains Mono', 'DejaVu Sans Mono', monospace"
+FONT = "'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace"
 GREEN = "#3dff9a"
 # The CD "Rainbow Books", in rainbow order: (name, format, colour).
 BOOKS = [("Red", "CD-DA", "#ff4d5e"), ("Orange", "CD-R/RW", "#ff8a3d"), ("Yellow", "CD-ROM", "#ffd23d"),
@@ -182,7 +182,7 @@ def social(name, r):
 <text x="560" y="400" font-family="{FONT}" font-size="26" fill="{DIM}">{r["sub"]}</text>
 {"".join(chips)}
 <rect x="0" y="0" width="34" height="640" fill="{c}"/>
-<text transform="translate(24 320) rotate(-90)" text-anchor="middle" font-family="{FONT}" font-weight="800" font-size="17" letter-spacing="3" fill="{BG}">{r["book"].upper()} BOOK · {BOOK[r["book"]][0]}</text>
+<text transform="translate(24 320) rotate(-90)" text-anchor="middle" font-family="{FONT}" font-weight="800" font-size="17" letter-spacing="3" fill="{BG}">D-Modem/{name}</text>
 <path d="{wave_path(0, 1280, 600, 10, 16, 0.578125)}" fill="none" stroke="{c}" stroke-opacity="0.35" stroke-width="3"/>
 </svg>'''
 
