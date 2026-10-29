@@ -109,6 +109,26 @@ def avatar():
 </svg>'''
 
 
+# The app's launcher icon (tools/app_icon.py): an RJ11 jack on the 108-unit adaptive icon canvas.
+JACK_X, JACK_Y, JACK_W, JACK_H = 34, 34, 40, 32
+
+
+def jack_d():
+    nx, nh, cx = JACK_W * 0.4, JACK_H * 0.3, JACK_X + JACK_W / 2
+    return (f"M{JACK_X},{JACK_Y} H{JACK_X + JACK_W} V{JACK_Y + JACK_H} H{cx + nx / 2} V{JACK_Y + JACK_H + nh} "
+            f"H{cx - nx / 2} V{JACK_Y + JACK_H} H{JACK_X} Z")
+
+
+def app_icon_art(gid="stripes"):
+    """The jack, striped in the Rainbow Book colours, with the white carrier inside (108-unit canvas)."""
+    stops = "".join(f'<stop offset="{i / 6:.4f}" stop-color="{c}"/><stop offset="{(i + 1) / 6:.4f}" stop-color="{c}"/>'
+                    for i, (_, _, c) in enumerate(BOOKS))
+    return (f'<defs><linearGradient id="{gid}" x1="0" y1="0" x2="0" y2="1">{stops}</linearGradient></defs>'
+            f'<path d="{jack_d()}" fill="none" stroke="url(#{gid})" stroke-width="3.4"/>'
+            f'<path d="{wave_path(39, 69, 50, 6, 2.5, 0.5)}" fill="none" stroke="{INK}" stroke-width="3.4" '
+            'stroke-linecap="round" stroke-linejoin="round"/>')
+
+
 def icon(kind, c):
     """Repo icon drawn in a 300x300 box."""
     sw = 'stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"'
@@ -117,7 +137,7 @@ def icon(kind, c):
     if kind == "phone":
         return f'''<rect x="80" y="20" width="140" height="260" rx="26" stroke="{c}" {sw} filter="url(#glow)"/>
 <line x1="130" y1="48" x2="170" y2="48" stroke="{c}" {sw}/>
-<path d="{wave_path(104, 196, 150, 24, 2.5, 0.5)}" stroke="{INK}" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(150 146) scale(2.1) translate(-54 -54.8)">{app_icon_art("appjack")}</g>
 <circle cx="150" cy="248" r="9" fill="{c}"/>'''
     if kind == "chip":
         pins = "".join(f'<line x1="{x}" y1="40" x2="{x}" y2="70" stroke="{c}" {sw}/><line x1="{x}" y1="230" x2="{x}" y2="260" stroke="{c}" {sw}/>'
