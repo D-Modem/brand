@@ -1,4 +1,4 @@
-// Renders avatar/*.svg and social/*.svg to PNGs next to them, using Playwright's Chromium.
+// Renders avatar/*.svg, social/*.svg and app-icon/*.svg to PNGs next to them, using Playwright's Chromium.
 // The avatar also gets a 2x (1000px) export. Needs Sauce Code Pro (Nerd Font Mono) installed for the text.
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path');
@@ -6,7 +6,7 @@ const root = path.join(__dirname, '..');
 
 (async () => {
   const browser = await chromium.launch();
-  for (const dir of ['avatar', 'social']) {
+  for (const dir of ['avatar', 'social', 'app-icon']) {
     for (const f of fs.readdirSync(path.join(root, dir)).filter(f => f.endsWith('.svg'))) {
       const svg = fs.readFileSync(path.join(root, dir, f), 'utf8');
       const [, w, h] = svg.match(/width="(\d+)" height="(\d+)"/);

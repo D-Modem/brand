@@ -16,6 +16,7 @@ constellation.
 | `avatar/org-avatar.png` (500px), `@2x` (1000px) | GitHub org profile picture |
 | `avatar/mark.svg`, `mark.png`, `mark@2x.png` | Transparent mark for READMEs and docs |
 | `social/<repo>.png` (1280×640) | GitHub social preview for each repo |
+| `app-icon/ic_launcher.svg`, `play-store.png` (512px) | Android app launcher icon and Play Store icon |
 
 ## Palette
 
@@ -38,6 +39,15 @@ repositories.
 Neutrals: background `#0a0f1c`, panel `#121a2e`, text `#e8f0ff`, muted
 `#7f8bab`. Type: Sauce Code Pro, the [Nerd Fonts](https://www.nerdfonts.com/) build of
 [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
+
+## App icon
+
+<img src="app-icon/play-store.png" width="160" alt="D-Modem app icon">
+
+The front of an RJ11 jack, its outline striped in the Rainbow Book colours
+like the mark, with the white carrier inside. It is drawn on Android's
+108-unit adaptive icon canvas; the app's `ic_launcher_foreground` and
+`ic_launcher_monochrome` vector drawables follow `tools/app_icon.py`.
 
 ## Previews
 
@@ -65,4 +75,5 @@ intended; the SVGs name it as their font, so viewers without it fall back to
 another monospace font.
 
     python3 tools/gen.py
+    python3 tools/app_icon.py
     node tools/render.js
