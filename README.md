@@ -1,3 +1,5 @@
+<img src=".github/banner.png" alt="D-Modem/brand: Logos, colours and type" width="100%">
+
 # D-Modem brand
 
 Logos, colours, type, the naming guide and the shared website theme for the D-Modem organization.
