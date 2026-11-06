@@ -64,9 +64,9 @@ jobs:
         with:
           go-version: ${{ inputs.go-version }}
       - run: pip install -r .site/brand/pages/requirements.txt
-      - run: .site/brand/tools/site.sh . prepare
       - if: inputs.prepare != ''
         run: ${{ inputs.prepare }}
+      - run: .site/brand/tools/site.sh . prepare
       - run: zensical build --strict
       - uses: actions/upload-pages-artifact@v5
         with:
