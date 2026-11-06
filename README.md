@@ -23,7 +23,7 @@ constellation.
 
     python3 tools/gen.py && python3 tools/app_icon.py && node tools/render.js
 
-regenerates every SVG and PNG ([docs/assets.md](docs/assets.md)).
+regenerates every SVG and PNG; `python3 tools/art.py <repo>` makes one repository's banner and social preview ([docs/assets.md](docs/assets.md)).
 
 ## Documentation
 

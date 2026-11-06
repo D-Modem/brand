@@ -16,7 +16,7 @@ README, rendered to `banner/<repo>.png` and `banner/<repo>@2x.png`.
 `banner/suite.png` is the organization's own, for the profile and website.
 
 Each repository keeps a copy of its `@2x` PNG at `.github/banner.png` and
-shows it above its title:
+shows it above its title (`tools/art.py <repo> --install <checkout>` does both):
 
 ```html
 <img src=".github/banner.png" alt="D-Modem/<repo>: <tagline>" width="100%">
@@ -32,6 +32,22 @@ GitHub has no API for these, so they are uploaded by hand:
   upload `avatar/org-avatar@2x.png`.
 - **Social previews:** each repository's Settings → General → Social preview →
   Edit → Upload an image → `social/<repo>.png`.
+
+## Making one repository's art
+
+`tools/art.py` makes a repository's banner and social preview, and can put
+the banner in its checkout:
+
+    python3 tools/art.py menu                       # banner/menu.* and social/menu.*
+    python3 tools/art.py menu --install ../menu     # also ../menu/.github/banner.png and README.md
+    python3 tools/art.py menu --only social         # just the social preview
+
+A new repository: add it to `REPOS` at the top of `tools/gen.py` (Book,
+colour, icon, tagline, line below, tags), or try it out first with flags:
+
+    python3 tools/art.py foo --book Beige --tag "What foo is" --sub "One more line." --icon wave --chips Go,SIP
+
+`python3 tools/art.py -h` lists the Books and icons.
 
 ## Regenerating
 
