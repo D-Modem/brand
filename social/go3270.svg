@@ -32,8 +32,8 @@
 </g></g>
 <text x="640" y="172" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="30" fill="#7f8bab">D-Modem /</text>
 <text x="556" y="290" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="800" font-size="104" fill="#e8f0ff">go3270</text>
-<text x="560" y="350" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="700" font-size="34" fill="#a66bff">Go servers for 3270 terminals</text>
-<text x="560" y="400" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="26" fill="#7f8bab">Build TN3270 data streams from fields.</text>
+<text x="560" y="350" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="700" font-size="34.0" fill="#a66bff">Go servers for 3270 terminals</text>
+<text x="560" y="400" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="26.0" fill="#7f8bab">Build TN3270 data streams from fields.</text>
 <rect x="560" y="452" width="54" height="44" rx="22" fill="none" stroke="#a66bff" stroke-opacity="0.6" stroke-width="2"/><text x="587.0" y="481" text-anchor="middle" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="22" fill="#e8f0ff">Go</text><rect x="628" y="452" width="114" height="44" rx="22" fill="none" stroke="#a66bff" stroke-opacity="0.6" stroke-width="2"/><text x="685.0" y="481" text-anchor="middle" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="22" fill="#e8f0ff">TN3270</text><rect x="756" y="452" width="114" height="44" rx="22" fill="none" stroke="#a66bff" stroke-opacity="0.6" stroke-width="2"/><text x="813.0" y="481" text-anchor="middle" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="22" fill="#e8f0ff">EBCDIC</text>
 <rect x="0" y="0" width="34" height="640" fill="#a66bff"/>
 <text transform="translate(24 320) rotate(-90)" text-anchor="middle" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="800" font-size="17" letter-spacing="3" fill="#0a0f1c">D-Modem/go3270</text>
