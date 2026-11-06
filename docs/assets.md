@@ -9,6 +9,21 @@
 | ![bbs](../social/bbs.png) | ![go3270](../social/go3270.png) |
 | ![brand](../social/brand.png) | |
 
+## README banners
+
+`banner/<repo>.svg` is the 1280×320 header at the top of each repository's
+README, rendered to `banner/<repo>.png` and `banner/<repo>@2x.png`.
+`banner/suite.png` is the organization's own, for the profile and website.
+
+Each repository keeps a copy of its `@2x` PNG at `.github/banner.png` and
+shows it above its title:
+
+```html
+<img src=".github/banner.png" alt="D-Modem/<repo>: <tagline>" width="100%">
+```
+
+![bbs banner](../banner/bbs.png)
+
 ## Uploading to GitHub
 
 GitHub has no API for these, so they are uploaded by hand:

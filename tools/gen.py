@@ -36,6 +36,10 @@ REPOS = {
                      chips=["SVG", "PNG", "Rainbow Books", "Sauce Code Pro"]),
 }
 
+# The organization's own banner (profile and website): the mark itself, in all six Books.
+SUITE = dict(book="Rainbow", color="#9fb0d8", icon="mark",
+             tag="An open dial-up suite", sub="V.92 softmodem, app, boards, BBS and login, all open.")
+
 
 def wave_path(x0, x1, y, amp, cycles, analog_frac=0.55):
     """Sine on the left turning into square pulses on the right: analog to digital."""
@@ -138,6 +142,8 @@ def icon(kind, c):
     sw = 'stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"'
     if kind == "wave":
         return mark(300, c, bg=False)
+    if kind == "mark":
+        return mark(300, bg=False)
     if kind == "phone":
         return f'''<rect x="80" y="20" width="140" height="260" rx="26" stroke="{c}" {sw} filter="url(#glow)"/>
 <line x1="130" y1="48" x2="170" y2="48" stroke="{c}" {sw}/>
@@ -221,6 +227,47 @@ def social(name, r):
 </svg>'''
 
 
+def banner(name, r):
+    """A 1280x320 README header: icon panel, mark, name and tagline, the carrier along the bottom."""
+    c, W, H = r["color"], 1280, 320
+    size = 96 if len(name) <= 6 else 84
+    spine = (f'<rect width="26" height="{H}" fill="url(#bookspine)"/>' if name == "suite"
+             else f'<rect width="26" height="{H}" fill="{c}"/>')
+    label = "D-Modem" if name == "suite" else f"D-Modem/{name}"
+    title = "D-Modem" if name == "suite" else name
+    prefix = "" if name == "suite" else (f'<g transform="translate(110 36)">{mark(44, bg=False)}</g>'
+                                         f'<text x="164" y="70" font-family="{FONT}" font-size="26" fill="{DIM}">D-Modem /</text>')
+    ty = 174 if prefix else 156
+    n = len(BOOKS)
+    stops = "".join(f'<stop offset="{i / n:.4f}" stop-color="{col}"/><stop offset="{(i + 1) / n:.4f}" stop-color="{col}"/>'
+                    for i, (_, _, col) in enumerate(BOOKS))
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
+{defs(c)}
+<defs>
+  <clipPath id="card"><rect width="{W}" height="{H}" rx="20"/></clipPath>
+  <radialGradient id="vig3" gradientUnits="userSpaceOnUse" cx="1080" cy="160" r="560">
+    <stop offset="0" stop-color="{c}" stop-opacity="0.14"/>
+    <stop offset="1" stop-color="{BG}" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="bookspine" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="{H}">{stops}</linearGradient>
+</defs>
+<g clip-path="url(#card)">
+<rect width="{W}" height="{H}" fill="{BG}"/>
+<rect width="{W}" height="{H}" fill="url(#qam)"/>
+<rect width="{W}" height="{H}" fill="url(#vig3)"/>
+{spine}
+{"" if name == "suite" else f'<text transform="translate(18 {H / 2}) rotate(-90)" text-anchor="middle" font-family="{FONT}" font-weight="800" font-size="13" letter-spacing="2.5" fill="{BG}">{label}</text>'}
+{prefix}
+<text x="104" y="{ty}" font-family="{FONT}" font-weight="800" font-size="{size}" fill="{INK}">{title}</text>
+<text x="108" y="{ty + 50}" font-family="{FONT}" font-weight="700" font-size="30" fill="{c}">{r["tag"]}</text>
+<text x="108" y="{ty + 88}" font-family="{FONT}" font-size="22" fill="{DIM}">{r["sub"]}</text>
+<rect x="990" y="40" width="220" height="220" rx="28" fill="{BG2}" stroke="{c}" stroke-opacity="0.35" stroke-width="2"/>
+<g transform="translate(1010 60) scale(0.6)">{icon(r["icon"], c)}</g>
+<path d="{wave_path(26, W, 292, 7, 18, 0.5555)}" fill="none" stroke="{c}" stroke-opacity="0.35" stroke-width="2.5"/>
+</g>
+</svg>'''
+
+
 def mark_only():
     """The mark on a transparent background, for READMEs and docs."""
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
@@ -241,3 +288,5 @@ if __name__ == "__main__":
     write("avatar/mark.svg", mark_only())
     for n, r in REPOS.items():
         write(f"social/{n}.svg", social(n, r))
+        write(f"banner/{n}.svg", banner(n, r))
+    write("banner/suite.svg", banner("suite", SUITE))

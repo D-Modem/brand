@@ -5,6 +5,8 @@ detail lives in the repository's `docs/` (bbs: `docs/wiki/`), which also
 feeds its website.
 
 ```markdown
+<img src=".github/banner.png" alt="D-Modem/<repo>: <tagline>" width="100%">
+
 # <name>
 
 <one line: what it is>
