@@ -43,7 +43,8 @@ def install(name, repo):
     print(f"{name}: {gh}/banner.png")
 
 
-def main():
+def parser():
+    """art.py's command line (also docs/reference.md's, by tools/brand_ref.py)."""
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("names", nargs="*", help="repositories (default: all, and suite)")
     ap.add_argument("--install", metavar="REPO_DIR", help="copy the banner into this checkout and its README (one name)")
@@ -55,6 +56,11 @@ def main():
     ap.add_argument("--icon", choices=ICONS, default="wave", help="the repository's icon (default: wave)")
     ap.add_argument("--chips", default="", help="comma-separated tags on the social preview, e.g. Go,PAM")
     ap.add_argument("--only", choices=["banner", "social"], help="make only one of the two")
+    return ap
+
+
+def main():
+    ap = parser()
     a = ap.parse_args()
 
     names = a.names or list(gen.REPOS) + ["suite"]
