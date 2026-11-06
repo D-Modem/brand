@@ -1,3 +1,5 @@
+<img src=".github/banner.png" alt="D-Modem/brand: Logos, colours and type" width="100%">
+
 # D-Modem brand
 
 Logos, colours, type, the naming guide and the shared website theme for the D-Modem organization.
@@ -14,13 +16,14 @@ constellation.
 | `avatar/org-avatar.png` (500px), `@2x` (1000px) | GitHub org profile picture |
 | `avatar/mark.svg`, `mark.png`, `mark@2x.png` | Transparent mark for READMEs and docs |
 | `social/<repo>.png` (1280×640) | GitHub social preview for each repo |
+| `banner/<repo>.png` (1280×320), `@2x` (2560×640) | README header for each repo; `banner/suite.png` for the org profile and website |
 | `app-icon/ic_launcher.svg`, `play-store.png` (512px) | Android app launcher icon and Play Store icon |
 
 ## Quick start
 
     python3 tools/gen.py && python3 tools/app_icon.py && node tools/render.js
 
-regenerates every SVG and PNG ([docs/assets.md](docs/assets.md)).
+regenerates every SVG and PNG; `python3 tools/art.py <repo>` makes one repository's banner and social preview ([docs/assets.md](docs/assets.md)).
 
 ## Documentation
 

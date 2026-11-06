@@ -13,13 +13,13 @@ BOOK = {n: (y, c) for n, y, c in BOOKS}
 
 REPOS = {
     "D-Modem":  dict(book="Red", color=BOOK["Red"][1],     icon="wave",
-                     tag="V.92 softmodem over SIP", sub="No modem hardware. V.92 / V.90 / V.34 / fax.",
+                     tag="V.92 softmodem over SIP", sub="Cross-platform engine. V.92 / V.90 / V.34 / fax.",
                      chips=["C++", "SIP", "Asterisk", "FreeSWITCH"]),
     "app":      dict(book="Yellow", color=BOOK["Yellow"][1], icon="phone",
                      tag="A dial-up modem in your pocket", sub="Android app: V.92 over a SIP call.",
                      chips=["Android", "Kotlin", "NDK", "V.92"]),
     "hardware": dict(book="Orange", color=BOOK["Orange"][1], icon="chip",
-                     tag="pico-serial", sub="RP2040 serial and phone-line USB sticks.",
+                     tag="Open source hardware modem designs", sub="pico-serial: RP2040 serial and phone-line USB sticks.",
                      chips=["RP2040", "DB25", "USB-C", "CERN-OHL-S"]),
     "bbs":      dict(book="Blue", color=BOOK["Blue"][1], icon="bbs",
                      tag="A bulletin board for every caller", sub="Telnet, TN3270 and modem callers, in Go.",
@@ -28,13 +28,17 @@ REPOS = {
                      tag="Go servers for 3270 terminals", sub="Build TN3270 data streams from fields.",
                      chips=["Go", "TN3270", "EBCDIC"]),
     "menu":     dict(book="Green", color=BOOK["Green"][1], icon="menu",
-                     tag="modemmenu", sub="Login and menu for dial-up callers.",
+                     tag="User login and management for dial-up callers", sub="modemmenu: a login, then the BBS, PPP or a shell.",
                      chips=["Go", "PAM", "LDAP", "SQL", "PPP"]),
     # the White Book (Video CD), one of the free ones, for the brand itself
     "brand":    dict(book="White", color="#f2f4fa", icon="books",
                      tag="Logos, colours and type", sub="The mark, the Rainbow Books, Sauce Code Pro.",
                      chips=["SVG", "PNG", "Rainbow Books", "Sauce Code Pro"]),
 }
+
+# The organization's own banner (profile and website): the mark itself, in all six Books.
+SUITE = dict(book="Rainbow", color="#9fb0d8", icon="mark",
+             tag="The open source dial-up suite", sub="V.92 softmodem, app, boards, BBS and login.")
 
 
 def wave_path(x0, x1, y, amp, cycles, analog_frac=0.55):
@@ -138,6 +142,8 @@ def icon(kind, c):
     sw = 'stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"'
     if kind == "wave":
         return mark(300, c, bg=False)
+    if kind == "mark":
+        return mark(300, bg=False)
     if kind == "phone":
         return f'''<rect x="80" y="20" width="140" height="260" rx="26" stroke="{c}" {sw} filter="url(#glow)"/>
 <line x1="130" y1="48" x2="170" y2="48" stroke="{c}" {sw}/>
@@ -202,6 +208,8 @@ def social(name, r):
                      f'<text x="{x + w / 2}" y="481" text-anchor="middle" font-family="{FONT}" font-size="22" fill="{INK}">{t}</text>')
         x += w + 14
     size = 104 if len(name) <= 6 else 92
+    # long lines shrink to fit the 680px to the right edge (monospace: 0.6em per character)
+    tsz, ssz = min(34, 680 / (0.6 * len(r["tag"]))), min(26, 680 / (0.6 * len(r["sub"])))
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
 {defs(c)}
 <rect width="1280" height="640" fill="{BG}"/>
@@ -212,12 +220,53 @@ def social(name, r):
 <g transform="translate(560 128)">{mark(64, bg=False)}</g>
 <text x="640" y="172" font-family="{FONT}" font-size="30" fill="{DIM}">D-Modem /</text>
 <text x="556" y="290" font-family="{FONT}" font-weight="800" font-size="{size}" fill="{INK}">{name}</text>
-<text x="560" y="350" font-family="{FONT}" font-weight="700" font-size="34" fill="{c}">{r["tag"]}</text>
-<text x="560" y="400" font-family="{FONT}" font-size="26" fill="{DIM}">{r["sub"]}</text>
+<text x="560" y="350" font-family="{FONT}" font-weight="700" font-size="{tsz:.1f}" fill="{c}">{r["tag"]}</text>
+<text x="560" y="400" font-family="{FONT}" font-size="{ssz:.1f}" fill="{DIM}">{r["sub"]}</text>
 {"".join(chips)}
 <rect x="0" y="0" width="34" height="640" fill="{c}"/>
 <text transform="translate(24 320) rotate(-90)" text-anchor="middle" font-family="{FONT}" font-weight="800" font-size="17" letter-spacing="3" fill="{BG}">D-Modem/{name}</text>
 <path d="{wave_path(0, 1280, 600, 10, 16, 0.578125)}" fill="none" stroke="{c}" stroke-opacity="0.35" stroke-width="3"/>
+</svg>'''
+
+
+def banner(name, r):
+    """A 1280x320 README header: icon panel, mark, name and tagline, the carrier along the bottom."""
+    c, W, H = r["color"], 1280, 320
+    size = 96 if len(name) <= 6 else 84
+    spine = (f'<rect width="26" height="{H}" fill="url(#bookspine)"/>' if name == "suite"
+             else f'<rect width="26" height="{H}" fill="{c}"/>')
+    label = "D-Modem" if name == "suite" else f"D-Modem/{name}"
+    title = "D-Modem" if name == "suite" else name
+    prefix = "" if name == "suite" else (f'<g transform="translate(110 36)">{mark(44, bg=False)}</g>'
+                                         f'<text x="164" y="70" font-family="{FONT}" font-size="26" fill="{DIM}">D-Modem /</text>')
+    ty = 174 if prefix else 156
+    n = len(BOOKS)
+    stops = "".join(f'<stop offset="{i / n:.4f}" stop-color="{col}"/><stop offset="{(i + 1) / n:.4f}" stop-color="{col}"/>'
+                    for i, (_, _, col) in enumerate(BOOKS))
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
+{defs(c)}
+<defs>
+  <clipPath id="card"><rect width="{W}" height="{H}" rx="20"/></clipPath>
+  <radialGradient id="vig3" gradientUnits="userSpaceOnUse" cx="1080" cy="160" r="560">
+    <stop offset="0" stop-color="{c}" stop-opacity="0.14"/>
+    <stop offset="1" stop-color="{BG}" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="bookspine" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="{H}">{stops}</linearGradient>
+</defs>
+<g clip-path="url(#card)">
+<rect width="{W}" height="{H}" fill="{BG}"/>
+<rect width="{W}" height="{H}" fill="url(#qam)"/>
+<rect width="{W}" height="{H}" fill="url(#vig3)"/>
+{spine}
+{"" if name == "suite" else f'<text transform="translate(18 {H / 2}) rotate(-90)" text-anchor="middle" font-family="{FONT}" font-weight="800" font-size="13" letter-spacing="2.5" fill="{BG}">{label}</text>'}
+{prefix}
+<text x="104" y="{ty}" font-family="{FONT}" font-weight="800" font-size="{size}" fill="{INK}">{title}</text>
+<text x="108" y="{ty + 50}" font-family="{FONT}" font-weight="700" font-size="30" fill="{c}">{r["tag"]}</text>
+<text x="108" y="{ty + 88}" font-family="{FONT}" font-size="22" fill="{DIM}">{r["sub"]}</text>
+<rect x="990" y="40" width="220" height="220" rx="28" fill="{BG2}" stroke="{c}" stroke-opacity="0.35" stroke-width="2"/>
+<g transform="translate(1010 60) scale(0.6)">{icon(r["icon"], c)}</g>
+<path d="{wave_path(26, W, 292, 7, 18, 0.5555)}" fill="none" stroke="{c}" stroke-opacity="0.35" stroke-width="2.5"/>
+</g>
 </svg>'''
 
 
@@ -241,3 +290,5 @@ if __name__ == "__main__":
     write("avatar/mark.svg", mark_only())
     for n, r in REPOS.items():
         write(f"social/{n}.svg", social(n, r))
+        write(f"banner/{n}.svg", banner(n, r))
+    write("banner/suite.svg", banner("suite", SUITE))
