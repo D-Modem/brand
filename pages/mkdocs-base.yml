@@ -43,6 +43,11 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      # headings' ids as GitHub makes them ("USB modems (`--usb`)" is
+      # usb-modems---usb), so links that work on GitHub work on the site
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
