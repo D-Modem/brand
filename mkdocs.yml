@@ -1,0 +1,21 @@
+INHERIT: .site/mkdocs-base.yml
+# brand's own site, https://d-modem.github.io/brand/: docs/ and the README
+# with the theme in pages/ (docs/sites.md). docs/reference.md is made from
+# tools/gen.py and tools/art.py (python3 tools/brand_ref.py).
+site_name: D-Modem brand
+site_description: Logos, colours, type and the shared website theme of the D-Modem suite
+site_url: https://d-modem.github.io/brand/
+repo_url: https://github.com/D-Modem/brand
+repo_name: D-Modem/brand
+docs_dir: .site/docs
+extra:
+  repo: brand
+nav:
+  - Home: index.md
+  - Naming guide: naming.md
+  - Palette and type: palette.md
+  - Reference: reference.md
+  - Assets: assets.md
+  - README template: readme-template.md
+  - Sites: sites.md
+  - Documentation index: README.md

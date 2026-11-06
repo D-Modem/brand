@@ -1,0 +1,24 @@
+# brand's own site, https://d-modem.github.io/brand/, built by the workflow
+# every repository's site uses (site.yml) with the theme of this very
+# commit, so a pull request shows its own theme changes.  It fails if
+# docs/reference.md isn't what tools/gen.py and tools/art.py make now, or
+# the theme's colours disagree with gen.py's (python3 tools/brand_ref.py).
+name: Pages
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  site:
+    uses: ./.github/workflows/site.yml
+    with:
+      brand-ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      prepare: python3 tools/brand_ref.py --check
