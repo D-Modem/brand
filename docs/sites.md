@@ -73,7 +73,21 @@ A site whose pages are `docs/` plus the README can set `docs_dir: .site/docs`:
 `tools/site.sh` then builds from a copy of `docs/` (`pages/site_docs.py`)
 whose home page is the README and whose links that leave `docs/` (to
 `../LICENSE`, to source files) go to the files on GitHub, so the same
-Markdown reads right on GitHub and on the site.
+Markdown reads right on GitHub and on the site. Images from outside
+`docs/` (a README's banner, renders beside a page) come from GitHub's raw
+files.
+
+Pages that live elsewhere in the repository join the site when
+`extra.site_include` lists them, as globs from the root; each keeps its
+own path, and links between them stay on the site:
+
+```yaml
+extra:
+  repo: hardware
+  site_include:
+    - SPEC*.md
+    - firmware/*.md
+```
 
 `.site/` and `site/` go in the repository's `.gitignore`: the first is the
 theme copied in for the build, the second the built site.
