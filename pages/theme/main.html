@@ -1,4 +1,4 @@
-{#- The D-Modem sites' theme: Material with the suite's bar on top and the
+{#- The D-Modem sites' theme: Zensical's with the suite's bar on top and the
     repository's Rainbow Book as its accent (extra.repo in mkdocs.yml). -#}
 {% extends "base.html" %}
 
@@ -8,7 +8,7 @@
     "menu": "#3ddc84", "bbs": "#3d8bff", "go3270": "#a66bff",
     "brand": "#f2f4fa", "D-Modem.github.io": "#3dff9a"
   } -%}
-  <style>:root { --suite-accent: {{ books.get(config.extra.repo, "#3dff9a") }}; }</style>
+  <style>:root { --suite-accent: {{ books[config.extra.repo] or "#3dff9a" }}; }</style>
   <link rel="stylesheet" href="{{ 'assets/suite/d-modem.css' | url }}">
   {{ super() }}
 {% endblock %}

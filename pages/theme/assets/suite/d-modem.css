@@ -1,5 +1,5 @@
 /* The D-Modem sites: brand's neutrals and type, the repository's Rainbow Book
-   (--suite-accent, set in main.html) as Material's primary and accent. */
+   (--suite-accent, set in main.html) as the theme's primary and accent. */
 @font-face {
   font-family: "Sauce Code Pro";
   src: local("SauceCodePro Nerd Font Mono"), local("SauceCodePro Nerd Font"), local("Source Code Pro");
