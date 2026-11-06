@@ -63,3 +63,6 @@
 .md-typeset h1 { color: var(--md-default-fg-color); font-weight: 600; }
 [data-md-color-scheme="slate"] .md-footer,
 [data-md-color-scheme="slate"] .md-footer-meta { background-color: var(--suite-panel); }
+
+/* reference tables: an option or key in the first column on one line */
+.md-typeset td:first-child code { white-space: nowrap; }
