@@ -1,6 +1,6 @@
 # D-Modem brand
 
-Logos, colours, type and the naming guide for the D-Modem organization.
+Logos, colours, type, the naming guide and the shared website theme for the D-Modem organization.
 
 <img src="avatar/org-avatar.png" width="160" alt="D-Modem org avatar"> <img src="avatar/mark.png" width="160" alt="D-Modem mark on a transparent background">
 
@@ -28,6 +28,7 @@ regenerates every SVG and PNG ([docs/assets.md](docs/assets.md)).
 - [README template](docs/readme-template.md): the landing page every repository's README follows
 - [Palette, type and the app icon](docs/palette.md)
 - [Assets](docs/assets.md): previews, uploading to GitHub, regenerating
+- [Sites](docs/sites.md): the shared theme and workflow behind every repository's GitHub Pages site
 
 ## The D-Modem suite
 

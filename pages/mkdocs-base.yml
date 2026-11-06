@@ -1,0 +1,57 @@
+# The D-Modem sites' shared MkDocs settings. A repository's mkdocs.yml starts
+# with "INHERIT: .site/mkdocs-base.yml" (tools/site.sh puts this file and the
+# theme in .site/) and adds its site_name, site_url, repo_url, nav and
+# extra.repo (its name, which picks its Rainbow Book colour).
+theme:
+  name: material
+  custom_dir: .site/theme
+  logo: assets/suite/mark.svg
+  favicon: assets/suite/mark.svg
+  font: false
+  palette:
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - content.code.copy
+    - content.action.edit
+    - search.highlight
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+edit_uri: edit/main/docs/
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+plugins:
+  - search
+extra:
+  generator: false

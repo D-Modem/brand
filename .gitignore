@@ -1,2 +1,5 @@
 __pycache__/
 node_modules/
+# a site built here with tools/site.sh
+.site/
+site/

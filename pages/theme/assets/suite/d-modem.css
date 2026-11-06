@@ -1,0 +1,65 @@
+/* The D-Modem sites: brand's neutrals and type, the repository's Rainbow Book
+   (--suite-accent, set in main.html) as Material's primary and accent. */
+@font-face {
+  font-family: "Sauce Code Pro";
+  src: local("SauceCodePro Nerd Font Mono"), local("SauceCodePro Nerd Font"), local("Source Code Pro");
+}
+:root {
+  --md-text-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --md-code-font: "Sauce Code Pro", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --suite-bg: #0a0f1c;
+  --suite-panel: #121a2e;
+  --suite-text: #e8f0ff;
+  --suite-muted: #7f8bab;
+}
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: var(--suite-panel);
+  --md-primary-fg-color--light: var(--suite-panel);
+  --md-primary-fg-color--dark: var(--suite-bg);
+  --md-primary-bg-color: var(--suite-text);
+  --md-primary-bg-color--light: var(--suite-muted);
+}
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: var(--suite-accent);
+  --md-accent-fg-color--transparent: color-mix(in srgb, var(--suite-accent) 12%, transparent);
+}
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--suite-bg);
+  --md-code-bg-color: var(--suite-panel);
+  --md-default-fg-color: var(--suite-text);
+  --md-typeset-a-color: var(--suite-accent);
+}
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: color-mix(in srgb, var(--suite-accent) 70%, #000);
+}
+.md-header { border-bottom: 3px solid var(--suite-accent); }
+.md-tabs { background-color: var(--suite-panel); }
+
+/* the suite's bar */
+.suite-bar {
+  display: flex; align-items: center; gap: 1rem; overflow-x: auto;
+  padding: 0 1rem; min-height: 1.8rem;
+  background: var(--suite-bg); color: var(--suite-muted);
+  font-family: var(--md-code-font); font-size: 0.65rem; white-space: nowrap;
+}
+.suite-bar ul { display: flex; gap: 0.9rem; margin: 0; padding: 0; list-style: none; }
+.suite-bar a { color: var(--suite-muted); }
+.suite-bar a:hover, .suite-bar a:focus { color: var(--suite-text); }
+.suite-bar__home { font-weight: 700; color: var(--suite-text) !important; }
+.suite-bar a[aria-current="page"] { color: var(--suite-text); border-bottom: 2px solid var(--suite-accent); }
+.suite-bar a[data-repo="D-Modem"]:hover { color: #ff4d5e; }
+.suite-bar a[data-repo="hardware"]:hover { color: #ff8a3d; }
+.suite-bar a[data-repo="app"]:hover { color: #ffd23d; }
+.suite-bar a[data-repo="menu"]:hover { color: #3ddc84; }
+.suite-bar a[data-repo="bbs"]:hover { color: #3d8bff; }
+.suite-bar a[data-repo="go3270"]:hover { color: #a66bff; }
+
+/* landing pages: a grid of cards (<div class="grid cards" markdown>) */
+.md-typeset .grid.cards > ul > li { border-left: 3px solid var(--suite-accent); }
+.md-typeset .suite-hero { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1rem; }
+.md-typeset .suite-hero img { width: 6rem; height: 6rem; flex: none; }
+@media (max-width: 30em) { .md-typeset .suite-hero { flex-direction: column; align-items: flex-start; } }
+
+.md-typeset h1 { color: var(--md-default-fg-color); font-weight: 600; }
+[data-md-color-scheme="slate"] .md-footer,
+[data-md-color-scheme="slate"] .md-footer-meta { background-color: var(--suite-panel); }

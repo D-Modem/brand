@@ -1,0 +1,19 @@
+{#- The bar across the top of every D-Modem site: the suite's sites, this one marked. -#}
+{%- set sites = [
+  ("D-Modem", "D-Modem", "The softmodem"),
+  ("app", "app", "Android and iOS app"),
+  ("hardware", "hardware", "pico-serial boards"),
+  ("menu", "menu", "Dial-in menu"),
+  ("bbs", "bbs", "The BBS"),
+  ("go3270", "go3270", "TN3270 library"),
+  ("brand", "brand", "Logos and colours")
+] -%}
+<nav class="suite-bar" aria-label="D-Modem sites">
+  <a class="suite-bar__home" href="https://d-modem.github.io/">D-Modem suite</a>
+  <ul>
+    {%- for name, path, title in sites %}
+    <li><a href="https://d-modem.github.io/{{ path }}/" title="{{ title }}" data-repo="{{ name }}"
+      {%- if config.extra.repo == name %} aria-current="page"{% endif %}>{{ name }}</a></li>
+    {%- endfor %}
+  </ul>
+</nav>
