@@ -19,7 +19,7 @@ REPOS = {
                      tag="A dial-up modem in your pocket", sub="Android app: V.92 over a SIP call.",
                      chips=["Android", "Kotlin", "NDK", "V.92"]),
     "hardware": dict(book="Orange", color=BOOK["Orange"][1], icon="chip",
-                     tag="pico-serial", sub="RP2040 serial and phone-line USB sticks.",
+                     tag="pico-serial", sub="Open source hardware modem designs.",
                      chips=["RP2040", "DB25", "USB-C", "CERN-OHL-S"]),
     "bbs":      dict(book="Blue", color=BOOK["Blue"][1], icon="bbs",
                      tag="A bulletin board for every caller", sub="Telnet, TN3270 and modem callers, in Go.",
