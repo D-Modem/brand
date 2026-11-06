@@ -8,7 +8,7 @@
   ("go3270", "go3270", "TN3270 library"),
   ("brand", "brand", "Logos and colours")
 ] -%}
-<nav class="suite-bar" aria-label="D-Modem sites">
+<nav class="suite-bar{% if config.extra.repo == "D-Modem.github.io" %} suite-bar--rainbow{% endif %}" aria-label="D-Modem sites">
   <a class="suite-bar__home" href="https://d-modem.github.io/">D-Modem suite</a>
   <ul>
     {%- for name, path, title in sites %}
