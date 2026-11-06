@@ -1,0 +1,90 @@
+# A D-Modem repository's GitHub Pages site: the shared theme and settings
+# (pages/, tools/site.sh) around the repository's mkdocs.yml and docs/, built
+# with mkdocs build --strict, then deployed to d-modem.github.io/<repo>/.
+#
+# Called from each repository's .github/workflows/pages.yml:
+#
+#   on:
+#     push: { branches: [main] }
+#     pull_request:
+#     workflow_dispatch:
+#   permissions: { contents: read, pages: write, id-token: write }
+#   concurrency: { group: pages, cancel-in-progress: false }
+#   jobs:
+#     site:
+#       uses: D-Modem/brand/.github/workflows/site.yml@main
+#       with:
+#         prepare: python3 tools/gen_reference.py   # optional
+#
+# A pull request builds the site (and fails on a broken link or page) but
+# doesn't deploy it. The repository's Pages source must be "GitHub Actions"
+# (Settings, Pages).
+name: Site
+
+on:
+  workflow_call:
+    inputs:
+      prepare:
+        description: shell commands run before the build (the reference generators), in the repository's root
+        type: string
+        default: ""
+      go-version:
+        description: a Go version to install first, for generators in Go ("" for none)
+        type: string
+        default: ""
+      submodules:
+        description: actions/checkout's submodules (false, true or recursive)
+        type: string
+        default: "false"
+      brand-ref:
+        description: the brand ref whose theme to use
+        type: string
+        default: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: ${{ inputs.submodules }}
+      - uses: actions/checkout@v6
+        with:
+          repository: D-Modem/brand
+          ref: ${{ inputs.brand-ref }}
+          path: .site/brand
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: .site/brand/pages/requirements.txt
+      - if: inputs.go-version != ''
+        uses: actions/setup-go@v7
+        with:
+          go-version: ${{ inputs.go-version }}
+      - run: pip install -r .site/brand/pages/requirements.txt
+      - run: .site/brand/tools/site.sh . prepare
+      - if: inputs.prepare != ''
+        run: ${{ inputs.prepare }}
+      - run: mkdocs build --strict
+        env:
+          NO_MKDOCS_2_WARNING: "1"
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,3 @@
+# the sites' build (tools/site.sh, .github/workflows/site.yml)
+mkdocs==1.6.1
+mkdocs-material==9.8.0
