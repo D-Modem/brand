@@ -16,7 +16,7 @@ Each repository's Rainbow Book is its accent: on its banner, its social preview 
 | `bbs` | Blue (CD Extra) | <span class="suite-swatch" style="background:#3d8bff"></span> `#3d8bff` | `bbs` | A bulletin board for every caller | Telnet, TN3270 and modem callers, in Go. | Go, ANSI, TN3270, Doors |
 | `go3270` | Purple (DDCD) | <span class="suite-swatch" style="background:#a66bff"></span> `#a66bff` | `3270` | Go servers for 3270 terminals | Build TN3270 data streams from fields. | Go, TN3270, EBCDIC |
 | `menu` | Green (CD-i) | <span class="suite-swatch" style="background:#3ddc84"></span> `#3ddc84` | `menu` | User login and management for dial-up callers | modemmenu: a login, then the BBS, PPP or a shell. | Go, PAM, LDAP, SQL, PPP |
-| `gui` | Scarlet | <span class="suite-swatch" style="background:#f0306e"></span> `#f0306e` | `gui` | D-Modem on the desktop | Native GUIs for the modem, its terminal and fax. | Windows, macOS, Linux, Desktop |
+| `gui` | Scarlet | <span class="suite-swatch" style="background:#c8102e"></span> `#c8102e` | `gui` | D-Modem on the desktop | Native GUIs for the modem, its terminal and fax. | Windows, macOS, Linux, Desktop |
 | `brand` | White | <span class="suite-swatch" style="background:#f2f4fa"></span> `#f2f4fa` | `books` | Logos, colours and type | The mark, the Rainbow Books, Sauce Code Pro. | SVG, PNG, Rainbow Books, Sauce Code Pro |
 | `suite` | Rainbow | <span class="suite-swatch" style="background:#9fb0d8"></span> `#9fb0d8` | `mark` | The open source dial-up suite | V.92 softmodem, app, boards, BBS and login. | V.92, SIP, Android, RP2040, BBS |
 

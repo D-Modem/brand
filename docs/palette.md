@@ -14,7 +14,7 @@ full name.
 | Green | CD-i | `#3ddc84` | [menu](https://github.com/D-Modem/menu) |
 | Blue | CD Extra | `#3d8bff` | [bbs](https://github.com/D-Modem/bbs) |
 | Purple | DDCD | `#a66bff` | [go3270](https://github.com/D-Modem/go3270) |
-| Scarlet | SACD | `#f0306e` | [gui](https://github.com/D-Modem/gui) |
+| Scarlet | SACD | `#c8102e` | [gui](https://github.com/D-Modem/gui) |
 | White | Video CD | `#f2f4fa` | [brand](https://github.com/D-Modem/brand) |
 
 Beige (Photo CD) is free for a future repository.
