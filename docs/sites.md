@@ -3,15 +3,14 @@
 Each repository has a site at `https://d-modem.github.io/<repo>/`, and the
 suite has one at <https://d-modem.github.io/> (the
 [D-Modem.github.io](https://github.com/D-Modem/D-Modem.github.io)
-repository). They are [MkDocs](https://www.mkdocs.org/) sites with the
-[Material](https://squidfunk.github.io/mkdocs-material/) theme, and they all
-share what lives here:
+repository). They are built with [Zensical](https://zensical.org/), the successor to
+Material for MkDocs by the same team, and they all share what lives here:
 
 | Path | What it is |
 | --- | --- |
-| `pages/mkdocs-base.yml` | The shared settings: the theme, light and dark schemes, Markdown extensions, search |
+| `pages/mkdocs-base.yml` | The shared settings: the theme, light and dark schemes, Markdown extensions, search (in `mkdocs.yml`'s format, which Zensical reads) |
 | `pages/theme/` | The theme's overrides: the suite's bar across the top, the Rainbow Book accent, the mark as logo and favicon |
-| `pages/requirements.txt` | The pinned MkDocs and Material versions |
+| `pages/requirements.txt` | The pinned Zensical version |
 | `tools/site.sh` | Puts the above into a repository and builds or previews its site |
 | `.github/workflows/site.yml` | The reusable workflow that builds every site and deploys it to Pages |
 

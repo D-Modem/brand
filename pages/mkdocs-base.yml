@@ -1,4 +1,5 @@
-# The D-Modem sites' shared MkDocs settings. A repository's mkdocs.yml starts
+# The D-Modem sites' shared settings, for Zensical (which reads MkDocs'
+# mkdocs.yml format). A repository's mkdocs.yml starts
 # with "INHERIT: .site/mkdocs-base.yml" (tools/site.sh puts this file and the
 # theme in .site/) and adds its site_name, site_url, repo_url, nav and
 # extra.repo (its name, which picks its Rainbow Book colour).

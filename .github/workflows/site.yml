@@ -1,6 +1,6 @@
 # A D-Modem repository's GitHub Pages site: the shared theme and settings
 # (pages/, tools/site.sh) around the repository's mkdocs.yml and docs/, built
-# with mkdocs build --strict, then deployed to d-modem.github.io/<repo>/.
+# with Zensical (zensical build --strict), then deployed to d-modem.github.io/<repo>/.
 #
 # Called from each repository's .github/workflows/pages.yml:
 #
@@ -67,9 +67,7 @@ jobs:
       - run: .site/brand/tools/site.sh . prepare
       - if: inputs.prepare != ''
         run: ${{ inputs.prepare }}
-      - run: mkdocs build --strict
-        env:
-          NO_MKDOCS_2_WARNING: "1"
+      - run: zensical build --strict
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site
