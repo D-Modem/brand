@@ -11,7 +11,7 @@ Writes banner/<name>.svg, .png, @2x.png (1280x320) and social/<name>.svg, .png (
     python3 tools/art.py foo --book Beige --tag "What foo is" --sub "One more line." \
         --icon wave --chips Go,SIP                  a repository not in tools/gen.py yet
 
-"suite" is the organization's banner (no social preview). Social previews are uploaded by hand:
+"suite" is the organization's own banner and social preview. Social previews are uploaded by hand:
 docs/assets.md.
 
 The taglines, colours and icons of the known repositories are in REPOS at the top of tools/gen.py;
@@ -83,8 +83,8 @@ def main():
         if a.only != "social":
             gen.write(f"banner/{n}.svg", gen.banner(n, gen.SUITE if n == "suite" else gen.REPOS[n]))
             svgs.append(f"banner/{n}.svg")
-        if a.only != "banner" and n != "suite":
-            gen.write(f"social/{n}.svg", gen.social(n, gen.REPOS[n]))
+        if a.only != "banner":
+            gen.write(f"social/{n}.svg", gen.social(n, gen.SUITE if n == "suite" else gen.REPOS[n]))
             svgs.append(f"social/{n}.svg")
     subprocess.run(["node", os.path.join(gen.ROOT, "tools", "render.js"), *svgs], check=True)
     for rel in svgs:

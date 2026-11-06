@@ -38,7 +38,8 @@ REPOS = {
 
 # The organization's own banner (profile and website): the mark itself, in all six Books.
 SUITE = dict(book="Rainbow", color="#9fb0d8", icon="mark",
-             tag="The open source dial-up suite", sub="V.92 softmodem, app, boards, BBS and login.")
+             tag="The open source dial-up suite", sub="V.92 softmodem, app, boards, BBS and login.",
+             chips=["V.92", "SIP", "Android", "RP2040", "BBS"])
 
 
 def wave_path(x0, x1, y, amp, cycles, analog_frac=0.55):
@@ -210,6 +211,20 @@ def social(name, r):
     size = 104 if len(name) <= 6 else 92
     # long lines shrink to fit the 680px to the right edge (monospace: 0.6em per character)
     tsz, ssz = min(34, 680 / (0.6 * len(r["tag"]))), min(26, 680 / (0.6 * len(r["sub"])))
+    suite = name == "suite"
+    title = "D-Modem" if suite else name
+    if suite:  # the organization: no "D-Modem /" line, a spine striped in all six Books
+        size = 104
+        prefix = ""
+        n = len(BOOKS)
+        spine = "".join(f'<rect x="0" y="{i * 640 / n:.2f}" width="34" height="{640 / n + 0.5:.2f}" fill="{col}"/>'
+                        for i, (_, _, col) in enumerate(BOOKS))
+    else:
+        prefix = (f'<g transform="translate(560 128)">{mark(64, bg=False)}</g>'
+                  f'<text x="640" y="172" font-family="{FONT}" font-size="30" fill="{DIM}">D-Modem /</text>')
+        spine = (f'<rect x="0" y="0" width="34" height="640" fill="{c}"/>'
+                 f'<text transform="translate(24 320) rotate(-90)" text-anchor="middle" font-family="{FONT}" '
+                 f'font-weight="800" font-size="17" letter-spacing="3" fill="{BG}">D-Modem/{name}</text>')
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
 {defs(c)}
 <rect width="1280" height="640" fill="{BG}"/>
@@ -217,14 +232,12 @@ def social(name, r):
 <rect width="1280" height="640" fill="url(#vig2)"/>
 <rect x="100" y="140" width="360" height="360" rx="40" fill="{BG2}" stroke="{c}" stroke-opacity="0.35" stroke-width="2"/>
 <g transform="translate(130 170)">{icon(r["icon"], c)}</g>
-<g transform="translate(560 128)">{mark(64, bg=False)}</g>
-<text x="640" y="172" font-family="{FONT}" font-size="30" fill="{DIM}">D-Modem /</text>
-<text x="556" y="290" font-family="{FONT}" font-weight="800" font-size="{size}" fill="{INK}">{name}</text>
+{prefix}
+<text x="556" y="290" font-family="{FONT}" font-weight="800" font-size="{size}" fill="{INK}">{title}</text>
 <text x="560" y="350" font-family="{FONT}" font-weight="700" font-size="{tsz:.1f}" fill="{c}">{r["tag"]}</text>
 <text x="560" y="400" font-family="{FONT}" font-size="{ssz:.1f}" fill="{DIM}">{r["sub"]}</text>
 {"".join(chips)}
-<rect x="0" y="0" width="34" height="640" fill="{c}"/>
-<text transform="translate(24 320) rotate(-90)" text-anchor="middle" font-family="{FONT}" font-weight="800" font-size="17" letter-spacing="3" fill="{BG}">D-Modem/{name}</text>
+{spine}
 <path d="{wave_path(0, 1280, 600, 10, 16, 0.578125)}" fill="none" stroke="{c}" stroke-opacity="0.35" stroke-width="3"/>
 </svg>'''
 
@@ -292,3 +305,4 @@ if __name__ == "__main__":
         write(f"social/{n}.svg", social(n, r))
         write(f"banner/{n}.svg", banner(n, r))
     write("banner/suite.svg", banner("suite", SUITE))
+    write("social/suite.svg", social("suite", SUITE))
