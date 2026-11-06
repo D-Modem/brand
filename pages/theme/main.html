@@ -6,9 +6,14 @@
   {%- set books = {
     "D-Modem": "#ff4d5e", "hardware": "#ff8a3d", "app": "#ffd23d",
     "menu": "#3ddc84", "bbs": "#3d8bff", "go3270": "#a66bff",
-    "gui": "#ff2e4d", "brand": "#f2f4fa", "D-Modem.github.io": "#3dff9a"
+    "gui": "#f0306e", "brand": "#f2f4fa", "D-Modem.github.io": "#3dff9a"
   } -%}
   <style>:root { --suite-accent: {{ books[config.extra.repo] or "#3dff9a" }}; }</style>
+  {%- if config.extra.repo == "D-Modem.github.io" %}
+  {#- the suite's own site: the header's edge striped in all six Books, like the mark #}
+  <style>.md-header { border-bottom: 4px solid transparent; border-image: linear-gradient(90deg,
+    #ff4d5e 0 16.66%, #ff8a3d 0 33.33%, #ffd23d 0 50%, #3ddc84 0 66.66%, #3d8bff 0 83.33%, #a66bff 0) 1; }</style>
+  {%- endif %}
   <link rel="stylesheet" href="{{ 'assets/suite/d-modem.css' | url }}">
   {{ super() }}
 {% endblock %}

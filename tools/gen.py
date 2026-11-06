@@ -31,7 +31,7 @@ REPOS = {
                      tag="User login and management for dial-up callers", sub="modemmenu: a login, then the BBS, PPP or a shell.",
                      chips=["Go", "PAM", "LDAP", "SQL", "PPP"]),
     # the Scarlet Book (SACD), one of the free ones
-    "gui":      dict(book="Scarlet", color="#ff2e4d", icon="gui",
+    "gui":      dict(book="Scarlet", color="#f0306e", icon="gui",
                      tag="D-Modem on the desktop", sub="Native GUIs for the modem, its terminal and fax.",
                      chips=["Windows", "macOS", "Linux", "Desktop"]),
     # the White Book (Video CD), one of the free ones, for the brand itself
