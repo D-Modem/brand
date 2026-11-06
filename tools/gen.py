@@ -28,7 +28,7 @@ REPOS = {
                      tag="Go servers for 3270 terminals", sub="Build TN3270 data streams from fields.",
                      chips=["Go", "TN3270", "EBCDIC"]),
     "menu":     dict(book="Green", color=BOOK["Green"][1], icon="menu",
-                     tag="modemmenu", sub="Login and menu for dial-up callers.",
+                     tag="modemmenu", sub="User login and management for dial-up callers.",
                      chips=["Go", "PAM", "LDAP", "SQL", "PPP"]),
     # the White Book (Video CD), one of the free ones, for the brand itself
     "brand":    dict(book="White", color="#f2f4fa", icon="books",
