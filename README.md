@@ -15,7 +15,7 @@ constellation.
 | --- | --- |
 | `avatar/org-avatar.png` (500px), `@2x` (1000px) | GitHub org profile picture |
 | `avatar/mark.svg`, `mark.png`, `mark@2x.png` | Transparent mark for READMEs and docs |
-| `social/<repo>.png` (1280×640) | GitHub social preview for each repo |
+| `social/<repo>.png` (1280×640) | GitHub social preview for each repo; `social/suite.png` for the organization |
 | `banner/<repo>.png` (1280×320), `@2x` (2560×640) | README header for each repo; `banner/suite.png` for the org profile and website |
 | `app-icon/ic_launcher.svg`, `play-store.png` (512px) | Android app launcher icon and Play Store icon |
 

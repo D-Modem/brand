@@ -79,8 +79,8 @@ def page():
         b.append("| `%s` | %s | %s | `%s` | %s | %s | %s |\n" % (
             name, book, swatch(r["color"]), r["icon"], cell(r["tag"]), cell(r["sub"]),
             ", ".join(r.get("chips", []))))
-    b += ["\n`suite` is the organization's own banner (its profile and "
-          "website), the mark in all six Books.\n\n",
+    b += ["\n`suite` is the organization's own banner and social preview (its "
+          "profile and website), the mark in all six Books.\n\n",
           "## Palette\n\n",
           "### Rainbow Books\n\n",
           "| Book | format | colour |\n|---|---|---|\n"]
