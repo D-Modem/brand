@@ -30,6 +30,10 @@ REPOS = {
     "menu":     dict(book="Green", color=BOOK["Green"][1], icon="menu",
                      tag="User login and management for dial-up callers", sub="modemmenu: a login, then the BBS, PPP or a shell.",
                      chips=["Go", "PAM", "LDAP", "SQL", "PPP"]),
+    # the Scarlet Book (SACD), one of the free ones
+    "gui":      dict(book="Scarlet", color="#ff2e4d", icon="gui",
+                     tag="D-Modem on the desktop", sub="Native GUIs for the modem, its terminal and fax.",
+                     chips=["Windows", "macOS", "Linux", "Desktop"]),
     # the White Book (Video CD), one of the free ones, for the brand itself
     "brand":    dict(book="White", color="#f2f4fa", icon="books",
                      tag="Logos, colours and type", sub="The mark, the Rainbow Books, Sauce Code Pro.",
@@ -180,6 +184,15 @@ def icon(kind, c):
 {rows}
 <path d="M120 230 L105 268 H195 L180 230" stroke="{c}" {sw}/>
 '''
+    if kind == "gui":
+        # a desktop window: title bar, the carrier, a Dial button and a status line
+        return f'''<rect x="30" y="50" width="240" height="200" rx="14" stroke="{c}" {sw} filter="url(#glow)"/>
+<line x1="30" y1="88" x2="270" y2="88" stroke="{c}" stroke-width="10"/>
+<circle cx="236" cy="69" r="6" fill="{c}"/><circle cx="216" cy="69" r="6" fill="{c}"/><circle cx="196" cy="69" r="6" fill="{c}"/>
+<path d="{wave_path(62, 238, 140, 22, 2.5, 0.5)}" stroke="{INK}" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="62" y="186" width="84" height="38" rx="8" fill="{c}"/>
+<text x="104" y="212" text-anchor="middle" font-family="{FONT}" font-weight="800" font-size="20" fill="{BG}">Dial</text>
+<text x="160" y="212" font-family="{FONT}" font-size="18" fill="{DIM}">V.92 ●</text>'''
     if kind == "menu":
         return f'''<rect x="30" y="40" width="240" height="220" rx="18" stroke="{c}" {sw} filter="url(#glow)"/>
 <text x="56" y="96" font-family="{FONT}" font-size="26" font-weight="700" fill="{INK}">login: <tspan fill="{c}">_</tspan></text>
