@@ -19,7 +19,7 @@ Each repository's Rainbow Book is its accent: on its banner, its social preview 
 | `brand` | White | <span class="suite-swatch" style="background:#f2f4fa"></span> `#f2f4fa` | `books` | Logos, colours and type | The mark, the Rainbow Books, Sauce Code Pro. | SVG, PNG, Rainbow Books, Sauce Code Pro |
 | `suite` | Rainbow | <span class="suite-swatch" style="background:#9fb0d8"></span> `#9fb0d8` | `mark` | The open source dial-up suite | V.92 softmodem, app, boards, BBS and login. | V.92, SIP, Android, RP2040, BBS |
 
-`suite` is the organization's own banner (its profile and website), the mark in all six Books.
+`suite` is the organization's own banner and social preview (its profile and website), the mark in all six Books.
 
 ## Palette
 
