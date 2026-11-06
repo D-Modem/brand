@@ -12,6 +12,7 @@ Material for MkDocs by the same team, and they all share what lives here:
 | `pages/theme/` | The theme's overrides: the suite's bar across the top, the Rainbow Book accent, the mark as logo and favicon |
 | `pages/requirements.txt` | The pinned Zensical version |
 | `tools/site.sh` | Puts the above into a repository and builds or previews its site |
+| `pages/site_docs.py` | The site's copy of `docs/` for `docs_dir: .site/docs` |
 | `.github/workflows/site.yml` | The reusable workflow that builds every site and deploys it to Pages |
 
 A change here reaches every site on its next build.
@@ -63,10 +64,16 @@ The workflow's inputs:
 
 | Input | Default | What it does |
 | --- | --- | --- |
-| `prepare` | none | Shell commands run before the build, in the repository's root: the generators that write the reference pages |
+| `prepare` | none | Shell commands run first, in the repository's root: the generators that write or check the reference pages |
 | `go-version` | none | A Go version to install first, for generators written in Go |
 | `submodules` | `false` | Passed to `actions/checkout` |
 | `brand-ref` | `main` | The brand branch or tag whose theme to use |
+
+A site whose pages are `docs/` plus the README can set `docs_dir: .site/docs`:
+`tools/site.sh` then builds from a copy of `docs/` (`pages/site_docs.py`)
+whose home page is the README and whose links that leave `docs/` (to
+`../LICENSE`, to source files) go to the files on GitHub, so the same
+Markdown reads right on GitHub and on the site.
 
 `.site/` and `site/` go in the repository's `.gitignore`: the first is the
 theme copied in for the build, the second the built site.
