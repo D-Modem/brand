@@ -38,7 +38,7 @@ REPOS = {
 
 # The organization's own banner (profile and website): the mark itself, in all six Books.
 SUITE = dict(book="Rainbow", color="#9fb0d8", icon="mark",
-             tag="An open dial-up suite", sub="V.92 softmodem, app, boards, BBS and login, all open.")
+             tag="The open source dial-up suite", sub="V.92 softmodem, app, boards, BBS and login.")
 
 
 def wave_path(x0, x1, y, amp, cycles, analog_frac=0.55):

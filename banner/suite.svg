@@ -33,8 +33,8 @@
 
 
 <text x="104" y="156" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="800" font-size="96" fill="#e8f0ff">D-Modem</text>
-<text x="108" y="206" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="700" font-size="30" fill="#9fb0d8">An open dial-up suite</text>
-<text x="108" y="244" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="22" fill="#7f8bab">V.92 softmodem, app, boards, BBS and login, all open.</text>
+<text x="108" y="206" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="700" font-size="30" fill="#9fb0d8">The open source dial-up suite</text>
+<text x="108" y="244" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="22" fill="#7f8bab">V.92 softmodem, app, boards, BBS and login.</text>
 <rect x="990" y="40" width="220" height="220" rx="28" fill="#121a2e" stroke="#9fb0d8" stroke-opacity="0.35" stroke-width="2"/>
 <g transform="translate(1010 60) scale(0.6)"><g transform="scale(0.6)">
 <path d="M140 100 H240 A150 150 0 0 1 240 400 H140 Z" fill="none" stroke="url(#books)" stroke-width="38" stroke-linejoin="round" filter="url(#glow)"/>
