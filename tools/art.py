@@ -24,8 +24,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gen  # noqa: E402
 
 # the free Rainbow Books, for repositories not in gen.REPOS yet
-FREE = {"Beige": "#d9c7a0", "Scarlet": "#ff2e4d", "White": "#f2f4fa"}
-ICONS = ["wave", "mark", "phone", "chip", "bbs", "3270", "menu", "books"]
+FREE = {"Beige": "#d9c7a0", "White": "#f2f4fa"}
+ICONS = ["wave", "mark", "phone", "chip", "bbs", "3270", "menu", "gui", "books"]
 
 
 def install(name, repo):

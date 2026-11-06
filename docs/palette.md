@@ -14,10 +14,10 @@ full name.
 | Green | CD-i | `#3ddc84` | [menu](https://github.com/D-Modem/menu) |
 | Blue | CD Extra | `#3d8bff` | [bbs](https://github.com/D-Modem/bbs) |
 | Purple | DDCD | `#a66bff` | [go3270](https://github.com/D-Modem/go3270) |
+| Scarlet | SACD | `#ff2e4d` | [gui](https://github.com/D-Modem/gui) |
 | White | Video CD | `#f2f4fa` | [brand](https://github.com/D-Modem/brand) |
 
-Beige (Photo CD) and Scarlet (SACD) are free for future
-repositories.
+Beige (Photo CD) is free for a future repository.
 
 Neutrals: background `#0a0f1c`, panel `#121a2e`, text `#e8f0ff`, muted
 `#7f8bab`. Type: Sauce Code Pro, the [Nerd Fonts](https://www.nerdfonts.com/) build of
