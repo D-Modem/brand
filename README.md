@@ -27,6 +27,8 @@ regenerates every SVG and PNG; `python3 tools/art.py <repo>` makes one repositor
 
 ## Documentation
 
+The documentation is also a website, [d-modem.github.io/brand](https://d-modem.github.io/brand/), with reference pages made from the code.
+
 - [Naming guide](docs/naming.md): how the repositories, programs and boards are named
 - [README template](docs/readme-template.md): the landing page every repository's README follows
 - [Palette, type and the app icon](docs/palette.md)
