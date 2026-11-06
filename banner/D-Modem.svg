@@ -37,7 +37,7 @@
 </g></g><text x="164" y="70" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="26" fill="#7f8bab">D-Modem /</text>
 <text x="104" y="174" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="800" font-size="84" fill="#e8f0ff">D-Modem</text>
 <text x="108" y="224" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-weight="700" font-size="30" fill="#ff4d5e">V.92 softmodem over SIP</text>
-<text x="108" y="262" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="22" fill="#7f8bab">No modem hardware. V.92 / V.90 / V.34 / fax.</text>
+<text x="108" y="262" font-family="'SauceCodePro Nerd Font Mono', 'Source Code Pro', monospace" font-size="22" fill="#7f8bab">Cross-platform engine. V.92 / V.90 / V.34 / fax.</text>
 <rect x="990" y="40" width="220" height="220" rx="28" fill="#121a2e" stroke="#ff4d5e" stroke-opacity="0.35" stroke-width="2"/>
 <g transform="translate(1010 60) scale(0.6)"><g transform="scale(0.6)">
 <path d="M140 100 H240 A150 150 0 0 1 240 400 H140 Z" fill="none" stroke="#ff4d5e" stroke-width="38" stroke-linejoin="round" filter="url(#glow)"/>

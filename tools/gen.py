@@ -13,7 +13,7 @@ BOOK = {n: (y, c) for n, y, c in BOOKS}
 
 REPOS = {
     "D-Modem":  dict(book="Red", color=BOOK["Red"][1],     icon="wave",
-                     tag="V.92 softmodem over SIP", sub="No modem hardware. V.92 / V.90 / V.34 / fax.",
+                     tag="V.92 softmodem over SIP", sub="Cross-platform engine. V.92 / V.90 / V.34 / fax.",
                      chips=["C++", "SIP", "Asterisk", "FreeSWITCH"]),
     "app":      dict(book="Yellow", color=BOOK["Yellow"][1], icon="phone",
                      tag="A dial-up modem in your pocket", sub="Android app: V.92 over a SIP call.",
