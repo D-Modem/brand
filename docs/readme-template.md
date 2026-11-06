@@ -23,7 +23,8 @@ feeds its website.
 
 ## Documentation
 
-- Website: https://d-modem.github.io/<repo>/
+The documentation is also a website, [d-modem.github.io/<repo>](https://d-modem.github.io/<repo>/), with reference pages made from the code.
+
 - <the docs index, or the wiki>
 
 ## The D-Modem suite
