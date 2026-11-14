@@ -6,10 +6,10 @@ Logos, colours, type, the naming guide and the shared website theme for the D-Mo
 
 <img src="avatar/org-avatar.png" width="160" alt="D-Modem org avatar"> <img src="avatar/mark.png" width="160" alt="D-Modem mark on a transparent background">
 
-A **D** with a carrier wave inside that starts as a sine and ends as square
-pulses: analog in, digital out. The D is striped in the colors of the CD
-"Rainbow Books", one per repository. The faint dot grid behind it is a QAM
-constellation.
+The mark is a **D** with a carrier wave in it. The wave starts as a sine and
+ends as square pulses: analog in, digital out. The D has stripes in the
+colors of the CD "Rainbow Books", one for each repository. The faint dot grid
+behind it is a QAM constellation.
 
 | File | Use |
 | --- | --- |
@@ -23,17 +23,18 @@ constellation.
 
     python3 tools/gen.py && python3 tools/app_icon.py && node tools/render.js
 
-regenerates every SVG and PNG; `python3 tools/art.py <repo>` makes one repository's banner and social preview ([docs/assets.md](docs/assets.md)).
+This command generates again each SVG and PNG. `python3 tools/art.py <repo>` makes the banner and social preview of one repository ([docs/assets.md](docs/assets.md)).
 
 ## Documentation
 
 The documentation is also a website, [d-modem.github.io/brand](https://d-modem.github.io/brand/), with reference pages made from the code.
 
 - [Naming guide](docs/naming.md): how the repositories, programs and boards are named
-- [README template](docs/readme-template.md): the landing page every repository's README follows
+- [README template](docs/readme-template.md): the landing page that the README of each repository follows
 - [Palette, type and the app icon](docs/palette.md)
-- [Assets](docs/assets.md): previews, uploading to GitHub, regenerating
-- [Sites](docs/sites.md): the shared theme and workflow behind every repository's GitHub Pages site
+- [Assets](docs/assets.md): previews, upload to GitHub, how to generate the images again
+- [Sites](docs/sites.md): the shared theme and workflow of the GitHub Pages site of each repository
+- [Documentation style](docs/STYLE.md): the rules for ASD-STE100 Simplified Technical English
 
 ## The D-Modem suite
 

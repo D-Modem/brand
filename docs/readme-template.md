@@ -1,8 +1,9 @@
 # README template
 
-Every repository's top-level README is a short landing page. Technical
-detail lives in the repository's `docs/` (bbs: `docs/wiki/`), which also
-feeds its website.
+The top-level README of each repository is a short landing page. Put the
+technical details in the `docs/` of the repository (bbs: `docs/wiki/`). The
+website of the repository also uses these files. Write the README and the
+docs in ASD-STE100 Simplified Technical English ([STYLE.md](STYLE.md)).
 
 ```markdown
 <img src=".github/banner.png" alt="D-Modem/<repo>: <tagline>" width="100%">
@@ -11,7 +12,7 @@ feeds its website.
 
 <one line: what it is>
 
-<two or three sentences: what it does and who it is for>
+<two or three sentences: what it does and for whom>
 
 - <feature>
 - <feature>
@@ -19,7 +20,7 @@ feeds its website.
 
 ## Quick start
 
-<install or build in a few lines>
+<how to install or build it, in a few lines>
 
 ## Documentation
 
@@ -33,13 +34,13 @@ The documentation is also a website, [d-modem.github.io/<repo>](https://d-modem.
 
 ## Licence
 
-<one or two lines, linking COPYING or LICENSING.md>
+<one or two lines, with a link to COPYING or LICENSING.md>
 ```
 
-Until a repository's website is live, its Documentation section links the
-docs index (or the wiki) only.
+Until the website of a repository is live, its Documentation section has
+a link to the docs index (or the wiki) only.
 
-The suite table, the same in every README:
+The suite table is the same in each README:
 
 | Repository | What it is |
 | --- | --- |
