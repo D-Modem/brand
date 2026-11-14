@@ -1,29 +1,30 @@
 # The D-Modem sites
 
-Each repository has a site at `https://d-modem.github.io/<repo>/`, and the
-suite has one at <https://d-modem.github.io/> (the
+Each repository has a site at `https://d-modem.github.io/<repo>/`. The
+suite has a site at <https://d-modem.github.io/> (the
 [D-Modem.github.io](https://github.com/D-Modem/D-Modem.github.io)
-repository). They are built with [Zensical](https://zensical.org/), the successor to
-Material for MkDocs by the same team, and they all share what lives here:
+repository). The sites are built with [Zensical](https://zensical.org/). Zensical is the successor to
+Material for MkDocs, from the same team. All the sites share the files in this repository:
 
 | Path | What it is |
 | --- | --- |
-| `pages/mkdocs-base.yml` | The shared settings: the theme, light and dark schemes, Markdown extensions, search (in `mkdocs.yml`'s format, which Zensical reads) |
-| `pages/theme/` | The theme's overrides: the suite's bar across the top, the Rainbow Book accent, the mark as logo and favicon |
+| `pages/mkdocs-base.yml` | The shared settings: the theme, light and dark schemes, Markdown extensions, search (in the format of `mkdocs.yml`, which Zensical reads) |
+| `pages/theme/` | The overrides of the theme: the bar of the suite across the top, the Rainbow Book accent, the mark as logo and favicon |
 | `pages/requirements.txt` | The pinned Zensical version |
-| `tools/site.sh` | Puts the above into a repository and builds or previews its site |
-| `pages/site_docs.py` | The site's copy of `docs/` for `docs_dir: .site/docs` |
-| `.github/workflows/site.yml` | The reusable workflow that builds every site and deploys it to Pages |
+| `tools/site.sh` | Puts the items above into a repository, and builds or previews its site |
+| `pages/site_docs.py` | The copy of `docs/` for the site, for `docs_dir: .site/docs` |
+| `.github/workflows/site.yml` | The reusable workflow that builds each site and deploys it to Pages |
 
-A change here reaches every site on its next build.
+A change here goes to each site on its next build.
 
 ## A repository's site
 
-A repository needs three things: `mkdocs.yml`, its pages under `docs/`, and
+A repository needs three items: `mkdocs.yml`, its pages under `docs/`, and
 `.github/workflows/pages.yml`.
 
-`mkdocs.yml` inherits the shared settings and names the repository, whose
-Rainbow Book becomes the site's accent ([palette.md](palette.md)):
+`mkdocs.yml` inherits the shared settings and names the repository. The
+Rainbow Book of the repository becomes the accent of the site
+([palette.md](palette.md)):
 
 ```yaml
 INHERIT: .site/mkdocs-base.yml
@@ -39,7 +40,8 @@ nav:
 ```
 
 `.github/workflows/pages.yml` calls the shared workflow. A pull request
-builds the site, so a broken link fails it, and a push to main deploys it:
+builds the site, thus a broken link causes the pull request to fail. A push
+to main deploys the site:
 
 ```yaml
 name: Pages
@@ -60,25 +62,25 @@ jobs:
     uses: D-Modem/brand/.github/workflows/site.yml@main
 ```
 
-The workflow's inputs:
+The inputs of the workflow:
 
 | Input | Default | What it does |
 | --- | --- | --- |
-| `prepare` | none | Shell commands run first, in the repository's root: the generators that write or check the reference pages |
+| `prepare` | none | Shell commands that run first, in the root of the repository: the generators that write or check the reference pages |
 | `go-version` | none | A Go version to install first, for generators written in Go |
 | `submodules` | `false` | Passed to `actions/checkout` |
-| `brand-ref` | `main` | The brand branch or tag whose theme to use |
+| `brand-ref` | `main` | The brand branch or tag that has the theme to use |
 
-A site whose pages are `docs/` plus the README can set `docs_dir: .site/docs`:
-`tools/site.sh` then builds from a copy of `docs/` (`pages/site_docs.py`)
-whose home page is the README and whose links that leave `docs/` (to
-`../LICENSE`, to source files) go to the files on GitHub, so the same
-Markdown reads right on GitHub and on the site. Images from outside
-`docs/` (a README's banner, renders beside a page) come from GitHub's raw
-files.
+If the pages of a site are `docs/` and the README, the site can set
+`docs_dir: .site/docs`. Then `tools/site.sh` builds from a copy of `docs/`
+(`pages/site_docs.py`). In this copy, the README is the home page. The links
+that go out of `docs/` (to `../LICENSE`, to source files) go to the files on
+GitHub. Thus the same Markdown shows correctly on GitHub and on the site.
+Images from outside `docs/` (the banner of a README, renders next to a page)
+come from the raw files of GitHub.
 
-Pages that live elsewhere in the repository join the site when
-`extra.site_include` lists them, as globs from the root; each keeps its
+Pages in other locations of the repository become part of the site if
+`extra.site_include` lists them, as globs from the root. Each page keeps its
 own path, and links between them stay on the site:
 
 ```yaml
@@ -89,15 +91,15 @@ extra:
     - firmware/*.md
 ```
 
-`.site/` and `site/` go in the repository's `.gitignore`: the first is the
-theme copied in for the build, the second the built site.
+Put `.site/` and `site/` in the `.gitignore` of the repository. `.site/` is
+the theme that the build copies in. `site/` is the built site.
 
-The repository's Pages source must be **GitHub Actions** (Settings → Pages →
+The Pages source of the repository must be **GitHub Actions** (Settings → Pages →
 Build and deployment → Source).
 
-## Previewing
+## Preview
 
-With a clone of brand beside the repository:
+Put a clone of brand next to the repository. Then use these commands:
 
 ```sh
 pip install -r ../brand/pages/requirements.txt
@@ -105,13 +107,13 @@ pip install -r ../brand/pages/requirements.txt
 ../brand/tools/site.sh . build     # what CI runs, into site/
 ```
 
-Run the repository's generators first if it has any (its `prepare` line).
+If the repository has generators, run them first (its `prepare` line).
 
 ## Pages and generated reference
 
 Each site has a landing page (`docs/index.md`) and a reference section that
-lists every configurable option. The reference pages are written by a
-generator in the repository from the code itself (an option table, a config
-struct, a settings class), so they can't fall behind it. Generated pages are
-built in CI rather than committed, and a generator fails when an option has
-no description, so an undocumented option fails the build.
+lists each configurable option. A generator in the repository writes the
+reference pages from the code (an option table, a config struct, a settings
+class). Thus the pages always agree with the code. CI builds the generated
+pages, and they are not committed. A generator fails if an option has no
+description. Thus an option without a description causes the build to fail.
