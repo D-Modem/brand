@@ -2,9 +2,10 @@
 
 ## Palette
 
-Each repository takes one Rainbow Book. Its color is the accent on its social
-preview and of the spine down its left edge, which carries the repository's
-full name.
+Each repository has one Rainbow Book. The color of the Book is the accent on
+the social preview of the repository. It is also the color of the spine on
+the left edge of the preview. The spine shows the full name of the
+repository.
 
 | Book | Format | Color | Repository |
 | --- | --- | --- | --- |
@@ -17,7 +18,7 @@ full name.
 | Scarlet | SACD | `#c8102e` | [gui](https://github.com/D-Modem/gui) |
 | White | Video CD | `#f2f4fa` | [brand](https://github.com/D-Modem/brand) |
 
-Beige (Photo CD) is free for a future repository.
+Beige (Photo CD) is available for a future repository.
 
 Neutrals: background `#0a0f1c`, panel `#121a2e`, text `#e8f0ff`, muted
 `#7f8bab`. Type: Sauce Code Pro, the [Nerd Fonts](https://www.nerdfonts.com/) build of
@@ -27,7 +28,8 @@ Neutrals: background `#0a0f1c`, panel `#121a2e`, text `#e8f0ff`, muted
 
 <img src="../app-icon/play-store.png" width="160" alt="D-Modem app icon">
 
-The front of an RJ11 jack, its outline striped in the Rainbow Book colours
-like the mark, with the white carrier inside. It is drawn on Android's
-108-unit adaptive icon canvas; the app's `ic_launcher_foreground` and
-`ic_launcher_monochrome` vector drawables follow `tools/app_icon.py`.
+The icon is the front of an RJ11 jack, with the white carrier in it. Its
+outline has stripes in the Rainbow Book colours, as the mark has. It is drawn
+on the 108-unit adaptive icon canvas of Android. The `ic_launcher_foreground`
+and `ic_launcher_monochrome` vector drawables of the app follow
+`tools/app_icon.py`.

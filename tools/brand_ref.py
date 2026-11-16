@@ -64,13 +64,14 @@ def page():
     b = ["<!-- Made by tools/brand_ref.py from tools/gen.py and tools/art.py: "
          "change the code (or the script), not this page. -->\n\n",
          "# Reference\n\n",
-         "The suite's colours and each repository's art, as `tools/gen.py` "
-         "draws them, and `tools/art.py`'s command line. "
-         "[Palette, type and the app icon](palette.md) says why they are so; "
-         "[Assets](assets.md) how to make the images.\n\n",
+         "This page gives the colours of the suite and the art of each "
+         "repository, as `tools/gen.py` draws them. It also gives the command "
+         "line of `tools/art.py`. "
+         "[Palette, type and the app icon](palette.md) tells why they are so. "
+         "[Assets](assets.md) tells how to make the images.\n\n",
          "## Repositories\n\n",
-         "Each repository's Rainbow Book is its accent: on its banner, its "
-         "social preview and its site.\n\n",
+         "The Rainbow Book of each repository is its accent: on its banner, "
+         "its social preview and its site.\n\n",
          "| repository | Book | colour | icon | tagline | second line | tags |\n",
          "|---|---|---|---|---|---|---|\n"]
     for name, r in list(gen.REPOS.items()) + [("suite", gen.SUITE)]:
@@ -79,26 +80,26 @@ def page():
         b.append("| `%s` | %s | %s | `%s` | %s | %s | %s |\n" % (
             name, book, swatch(r["color"]), r["icon"], cell(r["tag"]), cell(r["sub"]),
             ", ".join(r.get("chips", []))))
-    b += ["\n`suite` is the organization's own banner and social preview (its "
-          "profile and website), the mark in all six Books.\n\n",
+    b += ["\n`suite` is the banner and social preview of the organization (for "
+          "its profile and website), with the mark in all six Books.\n\n",
           "## Palette\n\n",
           "### Rainbow Books\n\n",
           "| Book | format | colour |\n|---|---|---|\n"]
     for n, fmt, c in gen.BOOKS:
         b.append("| %s | %s | %s |\n" % (n, fmt, swatch(c)))
-    b += ["\nThe free Books, for a repository not given one yet "
+    b += ["\nThe free Books, for a repository that does not have a Book yet "
           "(`tools/art.py --book`):\n\n",
           "| Book | colour |\n|---|---|\n"]
     for n, c in art.FREE.items():
         b.append("| %s | %s |\n" % (n, swatch(c)))
-    b += ["\n### The rest\n\n", "| name | colour | use |\n|---|---|---|\n"]
-    for n, use in (("BG", "background"), ("BG2", "the background's second shade"),
-                   ("INK", "text"), ("DIM", "muted text"), ("GREEN", "the carrier, and the suite's own accent")):
+    b += ["\n### The other colours\n\n", "| name | colour | use |\n|---|---|---|\n"]
+    for n, use in (("BG", "background"), ("BG2", "the second shade of the background"),
+                   ("INK", "text"), ("DIM", "muted text"), ("GREEN", "the carrier, and the accent of the suite")):
         b.append("| `%s` | %s | %s |\n" % (n, swatch(getattr(gen, n)), use))
     b += ["\nType: %s.\n\n" % cell(gen.FONT.replace("'", "")),
           "## tools/art.py\n\n",
-          "Makes a repository's banner and social preview, and puts the banner "
-          "in its checkout.\n\n",
+          "Makes the banner and social preview of a repository, and puts the "
+          "banner in its checkout.\n\n",
           "    python3 tools/art.py [names...] [options]\n\n",
           "| argument | value | what it does |\n|---|---|---|\n"]
     b += usage()
