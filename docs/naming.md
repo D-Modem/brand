@@ -10,7 +10,7 @@ Use these names in READMEs, docs, wiki pages, UI text and commit messages.
 | D-Modem | [D-Modem/D-Modem](https://github.com/D-Modem/D-Modem) | The softmodem: modem core, DSP, data link layer and its programs. Also the name of the full suite. For the suite, write "the D-Modem suite" |
 | the D-Modem app | [D-Modem/app](https://github.com/D-Modem/app) | One app for Android and iOS/iPadOS |
 | pico-serial | [D-Modem/hardware](https://github.com/D-Modem/hardware) | The board family. For the repository, write "the hardware repository" |
-| modemmenu | [D-Modem/menu](https://github.com/D-Modem/menu) | The program. For the repository, write "the menu repository" |
+| dmodem-login | [D-Modem/login](https://github.com/D-Modem/login) | The program: the login, the menu and the LDAP provider. For the repository, write "the login repository" |
 | bbs | [D-Modem/bbs](https://github.com/D-Modem/bbs) | |
 | go3270 | [D-Modem/go3270](https://github.com/D-Modem/go3270) | Our fork of [racingmars/go3270](https://github.com/racingmars/go3270). Go module `github.com/D-Modem/go3270` |
 | brand | [D-Modem/brand](https://github.com/D-Modem/brand) | |
@@ -46,6 +46,8 @@ Then the link operates from all repositories, the wiki and the Pages sites.
 | D-Modem-RE | D-Modem |
 | dmodem-android, D-Modem for Android | the D-Modem app |
 | racingmars/go3270 (for our copy) | D-Modem/go3270 |
+| modemmenu | dmodem-login |
+| D-Modem/menu, the menu repository | D-Modem/login, the login repository |
 
 Some paths already have an old name (for example, the `external/d-modem-re`
 submodule directory of the app). These paths can keep the old name until

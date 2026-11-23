@@ -5,7 +5,7 @@
 | | |
 | --- | --- |
 | ![D-Modem](../social/D-Modem.png) | ![hardware](../social/hardware.png) |
-| ![app](../social/app.png) | ![menu](../social/menu.png) |
+| ![app](../social/app.png) | ![login](../social/login.png) |
 | ![bbs](../social/bbs.png) | ![go3270](../social/go3270.png) |
 | ![gui](../social/gui.png) | ![brand](../social/brand.png) |
 | ![suite](../social/suite.png) | |
@@ -41,9 +41,9 @@ GitHub has no API for these images. Thus you must upload them manually:
 `tools/art.py` makes the banner and social preview of a repository. It can
 also put the banner in the checkout of the repository:
 
-    python3 tools/art.py menu                       # banner/menu.* and social/menu.*
-    python3 tools/art.py menu --install ../menu     # also ../menu/.github/banner.png and README.md
-    python3 tools/art.py menu --only social         # just the social preview
+    python3 tools/art.py login                      # banner/login.* and social/login.*
+    python3 tools/art.py login --install ../login   # also ../login/.github/banner.png and README.md
+    python3 tools/art.py login --only social        # just the social preview
 
 For a new repository, add it to `REPOS` at the top of `tools/gen.py` (Book,
 colour, icon, tagline, line below, tags). You can also try it first with

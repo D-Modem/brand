@@ -12,7 +12,7 @@ repository.
 | Red | CD-DA | `#ff4d5e` | [D-Modem](https://github.com/D-Modem/D-Modem) |
 | Orange | CD-R/RW | `#ff8a3d` | [hardware](https://github.com/D-Modem/hardware) |
 | Yellow | CD-ROM | `#ffd23d` | [app](https://github.com/D-Modem/app) |
-| Green | CD-i | `#3ddc84` | [menu](https://github.com/D-Modem/menu) |
+| Green | CD-i | `#3ddc84` | [login](https://github.com/D-Modem/login) |
 | Blue | CD Extra | `#3d8bff` | [bbs](https://github.com/D-Modem/bbs) |
 | Purple | DDCD | `#a66bff` | [go3270](https://github.com/D-Modem/go3270) |
 | Scarlet | SACD | `#c8102e` | [gui](https://github.com/D-Modem/gui) |

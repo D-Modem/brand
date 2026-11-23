@@ -4,10 +4,10 @@
 Writes banner/<name>.svg, .png, @2x.png (1280x320) and social/<name>.svg, .png (1280x640).
 
     python3 tools/art.py                            every repository's banner and social preview
-    python3 tools/art.py menu bbs                   just those
-    python3 tools/art.py menu --only social         only the social preview (or --only banner)
-    python3 tools/art.py menu --install ../menu     and copy the banner to ../menu/.github/banner.png,
-                                                    adding it to the top of ../menu/README.md
+    python3 tools/art.py login bbs                  just those
+    python3 tools/art.py login --only social        only the social preview (or --only banner)
+    python3 tools/art.py login --install ../login   and copy the banner to ../login/.github/banner.png,
+                                                    adding it to the top of ../login/README.md
     python3 tools/art.py foo --book Beige --tag "What foo is" --sub "One more line." \
         --icon wave --chips Go,SIP                  a repository not in tools/gen.py yet
 

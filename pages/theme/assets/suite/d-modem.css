@@ -50,14 +50,14 @@
 .suite-bar a[data-repo="D-Modem"]:hover { color: #ff4d5e; }
 .suite-bar a[data-repo="hardware"]:hover { color: #ff8a3d; }
 .suite-bar a[data-repo="app"]:hover { color: #ffd23d; }
-.suite-bar a[data-repo="menu"]:hover { color: #3ddc84; }
+.suite-bar a[data-repo="login"]:hover { color: #3ddc84; }
 .suite-bar a[data-repo="bbs"]:hover { color: #3d8bff; }
 .suite-bar a[data-repo="go3270"]:hover { color: #a66bff; }
 /* on the suite's own site the bar shows every repository in its colour */
 .suite-bar--rainbow a[data-repo="D-Modem"] { color: #ff4d5e; }
 .suite-bar--rainbow a[data-repo="hardware"] { color: #ff8a3d; }
 .suite-bar--rainbow a[data-repo="app"] { color: #ffd23d; }
-.suite-bar--rainbow a[data-repo="menu"] { color: #3ddc84; }
+.suite-bar--rainbow a[data-repo="login"] { color: #3ddc84; }
 .suite-bar--rainbow a[data-repo="bbs"] { color: #3d8bff; }
 .suite-bar--rainbow a[data-repo="go3270"] { color: #a66bff; }
 .suite-bar--rainbow a[data-repo="brand"] { color: #f2f4fa; }
@@ -94,8 +94,8 @@
 .md-typeset .suite-home .grid.cards > ul > li:has(> p:first-child a[href^="https://github.com/D-Modem/hardware"]) { border-left-color: #ff8a3d; }
 .md-typeset .suite-home a[href^="https://github.com/D-Modem/app"], .md-typeset .suite-home a[href^="https://d-modem.github.io/app/"] { color: #ffd23d; }
 .md-typeset .suite-home .grid.cards > ul > li:has(> p:first-child a[href^="https://github.com/D-Modem/app"]) { border-left-color: #ffd23d; }
-.md-typeset .suite-home a[href^="https://github.com/D-Modem/menu"], .md-typeset .suite-home a[href^="https://d-modem.github.io/menu/"] { color: #3ddc84; }
-.md-typeset .suite-home .grid.cards > ul > li:has(> p:first-child a[href^="https://github.com/D-Modem/menu"]) { border-left-color: #3ddc84; }
+.md-typeset .suite-home a[href^="https://github.com/D-Modem/login"], .md-typeset .suite-home a[href^="https://d-modem.github.io/login/"] { color: #3ddc84; }
+.md-typeset .suite-home .grid.cards > ul > li:has(> p:first-child a[href^="https://github.com/D-Modem/login"]) { border-left-color: #3ddc84; }
 .md-typeset .suite-home a[href^="https://github.com/D-Modem/bbs"], .md-typeset .suite-home a[href^="https://d-modem.github.io/bbs/"] { color: #3d8bff; }
 .md-typeset .suite-home .grid.cards > ul > li:has(> p:first-child a[href^="https://github.com/D-Modem/bbs"]) { border-left-color: #3d8bff; }
 .md-typeset .suite-home a[href^="https://github.com/D-Modem/go3270"], .md-typeset .suite-home a[href^="https://d-modem.github.io/go3270/"] { color: #a66bff; }
