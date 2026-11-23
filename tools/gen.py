@@ -27,8 +27,8 @@ REPOS = {
     "go3270":   dict(book="Purple", color=BOOK["Purple"][1], icon="3270",
                      tag="Go servers for 3270 terminals", sub="Build TN3270 data streams from fields.",
                      chips=["Go", "TN3270", "EBCDIC"]),
-    "menu":     dict(book="Green", color=BOOK["Green"][1], icon="menu",
-                     tag="User login and management for dial-up callers", sub="modemmenu: a login, then the BBS, PPP or a shell.",
+    "login":    dict(book="Green", color=BOOK["Green"][1], icon="menu",
+                     tag="User login and management for dial-up callers", sub="dmodem-login: a login, then the BBS, PPP or a shell.",
                      chips=["Go", "PAM", "LDAP", "SQL", "PPP"]),
     # the Scarlet Book (SACD), one of the free ones
     "gui":      dict(book="Scarlet", color="#c8102e", icon="gui",
