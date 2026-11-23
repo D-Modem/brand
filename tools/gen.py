@@ -16,7 +16,7 @@ REPOS = {
                      tag="V.92 softmodem over SIP", sub="Cross-platform engine. V.92 / V.90 / V.34 / fax.",
                      chips=["C++", "SIP", "Asterisk", "FreeSWITCH"]),
     "app":      dict(book="Yellow", color=BOOK["Yellow"][1], icon="phone",
-                     tag="A dial-up modem in your pocket", sub="Android app: V.92 over a SIP call.",
+                     tag="A dial-up modem in your pocket", sub="Android/iOS app: V.92 over a SIP call.",
                      chips=["Android", "Kotlin", "NDK", "V.92"]),
     "hardware": dict(book="Orange", color=BOOK["Orange"][1], icon="chip",
                      tag="Open source hardware modem designs", sub="pico-serial: RP2040 serial and phone-line USB sticks.",
