@@ -11,7 +11,7 @@ The Rainbow Book of each repository is its accent: on its banner, its social pre
 | repository | Book | colour | icon | tagline | second line | tags |
 |---|---|---|---|---|---|---|
 | `D-Modem` | Red (CD-DA) | <span class="suite-swatch" style="background:#ff4d5e"></span> `#ff4d5e` | `wave` | V.92 softmodem over SIP | Cross-platform engine. V.92 / V.90 / V.34 / fax. | C++, SIP, Asterisk, FreeSWITCH |
-| `app` | Yellow (CD-ROM) | <span class="suite-swatch" style="background:#ffd23d"></span> `#ffd23d` | `phone` | A dial-up modem in your pocket | Android app: V.92 over a SIP call. | Android, Kotlin, NDK, V.92 |
+| `app` | Yellow (CD-ROM) | <span class="suite-swatch" style="background:#ffd23d"></span> `#ffd23d` | `phone` | A dial-up modem in your pocket | Android/iOS app: V.92 over a SIP call. | Android, Kotlin, NDK, V.92 |
 | `hardware` | Orange (CD-R/RW) | <span class="suite-swatch" style="background:#ff8a3d"></span> `#ff8a3d` | `chip` | Open source hardware modem designs | pico-serial: RP2040 serial and phone-line USB sticks. | RP2040, DB25, USB-C, CERN-OHL-S |
 | `bbs` | Blue (CD Extra) | <span class="suite-swatch" style="background:#3d8bff"></span> `#3d8bff` | `bbs` | A bulletin board for every caller | Telnet, TN3270 and modem callers, in Go. | Go, ANSI, TN3270, Doors |
 | `go3270` | Purple (DDCD) | <span class="suite-swatch" style="background:#a66bff"></span> `#a66bff` | `3270` | Go servers for 3270 terminals | Build TN3270 data streams from fields. | Go, TN3270, EBCDIC |
