@@ -1,20 +1,13 @@
-{#- The bar across the top of every D-Modem site: the suite's sites, this one marked. -#}
-{%- set sites = [
-  ("D-Modem", "D-Modem", "The softmodem"),
-  ("app", "app", "Android and iOS app"),
-  ("gui", "gui", "Desktop apps"),
-  ("hardware", "hardware", "pico-serial boards"),
-  ("login", "login", "Dial-in login and LDAP"),
-  ("bbs", "bbs", "The BBS"),
-  ("go3270", "go3270", "TN3270 library"),
-  ("brand", "brand", "Logos and colours")
-] -%}
+{#- The bar across the top of every D-Modem site: the suite's core
+    repositories (pages/suite.yml, as extra.suite), this one marked. Each
+    link has its repository's colour as --repo-colour. -#}
 <nav class="suite-bar{% if config.extra.repo == "D-Modem.github.io" %} suite-bar--rainbow{% endif %}" aria-label="D-Modem sites">
   <a class="suite-bar__home" href="https://d-modem.github.io/">D-Modem suite</a>
   <ul>
-    {%- for name, path, title in sites %}
-    <li><a href="https://d-modem.github.io/{{ path }}/" title="{{ title }}" data-repo="{{ name }}"
-      {%- if config.extra.repo == name %} aria-current="page"{% endif %}>{{ name }}</a></li>
+    {%- for site in config.extra.suite or [] %}
+    <li><a href="https://d-modem.github.io/{{ site.name }}/" title="{{ site.title }}" data-repo="{{ site.name }}"
+      style="--repo-colour: {{ site.colour }}"
+      {%- if config.extra.repo == site.name %} aria-current="page"{% endif %}>{{ site.name }}</a></li>
     {%- endfor %}
   </ul>
 </nav>

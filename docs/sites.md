@@ -9,13 +9,68 @@ Material for MkDocs, from the same team. All the sites share the files in this r
 | Path | What it is |
 | --- | --- |
 | `pages/mkdocs-base.yml` | The shared settings: the theme, light and dark schemes, Markdown extensions, search (in the format of `mkdocs.yml`, which Zensical reads) |
+| `pages/suite.yml` | The list of the core repositories of the suite: the bar across the top of each site, the accent of each site, and the cards on the home page |
+| `pages/suite.py` | Puts the list of `pages/suite.yml` into a site |
 | `pages/theme/` | The overrides of the theme: the bar of the suite across the top, the Rainbow Book accent, the mark as logo and favicon |
 | `pages/requirements.txt` | The pinned Zensical version |
 | `tools/site.sh` | Puts the items above into a repository, and builds or previews its site |
 | `pages/site_docs.py` | The copy of `docs/` for the site, for `docs_dir: .site/docs` |
 | `.github/workflows/site.yml` | The reusable workflow that builds each site and deploys it to Pages |
+| `.github/workflows/sites.yml` | Builds each site again when one of the items above changes on main |
 
-A change here goes to each site on its next build.
+When one of these items changes on main, the Sites workflow
+(`.github/workflows/sites.yml`) builds each site again. Refer to
+[The core repositories](#the-core-repositories).
+
+## The core repositories
+
+`pages/suite.yml` is the list of the core repositories of the suite. It is
+the only location of this data. The list gives:
+
+- The links in the bar across the top of each site, in the order of the list.
+- The accent colour of each site.
+- The cards in "The suite" on <https://d-modem.github.io/>. A page that has
+  the line `<!-- suite:cards -->` gets the cards in place of this line.
+
+Put only the core repositories in the list. A repository that is not in the
+list can have a site, but the bar and the home page do not show it.
+
+Each entry has these keys:
+
+| Key | What it is |
+| --- | --- |
+| `name` | The name of the repository. Its site is `https://d-modem.github.io/<name>/`. |
+| `title` | The text that the bar shows when the pointer is on the name |
+| `colour` | The Book colour of the repository, as `#rrggbb`. It must be the same as in `REPOS` of `tools/gen.py`. |
+| `card` | The text of the card on the home page, in Markdown |
+
+When the list or the theme changes on main, the Sites workflow starts the
+Pages workflow of each site that uses the list: each core repository
+(but brand, which builds its own site), and D-Modem.github.io. Each site
+then has the new bar and the new cards. You do not change the other
+repositories.
+
+The Sites workflow uses the organization secret `DMODEM_BUMP_TOKEN`. The
+token must have **Actions: read and write** on each of those repositories,
+and brand must have access to the secret. If the token cannot start the
+workflow of a repository, the job of that repository fails. The other jobs
+continue.
+
+### Add a core repository
+
+1. Make the site of the new repository. Refer to
+   [A repository's site](#a-repositorys-site).
+2. Give the repository a Book: add it to `REPOS` in `tools/gen.py`.
+3. Add an entry for the repository to `pages/suite.yml`. Use the same
+   colour as in `tools/gen.py`.
+4. Run `python3 tools/brand_ref.py`. This updates `docs/reference.md` and
+   checks the colours.
+5. Add the repository to the fine-grained token of the
+   `DMODEM_BUMP_TOKEN` secret, with **Actions: read and write**.
+6. Merge the pull request. The Sites workflow builds each site again.
+
+To remove a core repository, remove its entry from `pages/suite.yml` and
+merge the pull request.
 
 ## A repository's site
 
@@ -70,6 +125,10 @@ The inputs of the workflow:
 | `go-version` | none | A Go version to install first, for generators written in Go |
 | `submodules` | `false` | Passed to `actions/checkout` |
 | `brand-ref` | `main` | The brand branch or tag that has the theme to use |
+
+If a page of the site has the line `<!-- suite:cards -->`, the site must
+set `docs_dir: .site/docs`. The build then changes the copy, not the page
+in `docs/`.
 
 If the pages of a site are `docs/` and the README, the site can set
 `docs_dir: .site/docs`. Then `tools/site.sh` builds from a copy of `docs/`
