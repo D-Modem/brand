@@ -53,6 +53,7 @@
 .suite-bar a[data-repo="login"]:hover { color: #3ddc84; }
 .suite-bar a[data-repo="bbs"]:hover { color: #3d8bff; }
 .suite-bar a[data-repo="go3270"]:hover { color: #a66bff; }
+.suite-bar a[data-repo="gui"]:hover { color: #c8102e; }
 /* on the suite's own site the bar shows every repository in its colour */
 .suite-bar--rainbow a[data-repo="D-Modem"] { color: #ff4d5e; }
 .suite-bar--rainbow a[data-repo="hardware"] { color: #ff8a3d; }
@@ -60,6 +61,7 @@
 .suite-bar--rainbow a[data-repo="login"] { color: #3ddc84; }
 .suite-bar--rainbow a[data-repo="bbs"] { color: #3d8bff; }
 .suite-bar--rainbow a[data-repo="go3270"] { color: #a66bff; }
+.suite-bar--rainbow a[data-repo="gui"] { color: #c8102e; }
 .suite-bar--rainbow a[data-repo="brand"] { color: #f2f4fa; }
 
 /* landing pages: a grid of cards (<div class="grid cards" markdown>) */
