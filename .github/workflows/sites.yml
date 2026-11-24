@@ -1,0 +1,74 @@
+# Sites: builds each D-Modem site again when the shared theme or the list
+# of the suite's core repositories changes on main. Thus a new core
+# repository in pages/suite.yml goes into the bar of each site and into
+# the cards of https://d-modem.github.io/ with no other change.
+#
+# For each repository that "python3 pages/suite.py sites" gives (each
+# core repository but brand, and D-Modem.github.io), it starts the Pages
+# workflow (.github/workflows/pages.yml) on main. That workflow builds the
+# site with the theme of brand's main and deploys it.
+#
+# It needs the DMODEM_BUMP_TOKEN secret (an organization secret that
+# brand can use): a fine-grained personal access token with
+# Actions: read and write on each of those repositories (a
+# workflow_dispatch needs that permission). The workflow's own
+# GITHUB_TOKEN cannot start a workflow in a different repository.
+# Without the secret, the run gives a warning and starts nothing. If the
+# token cannot start the workflow of a repository, the job of that
+# repository fails and the others continue.
+#
+# It also starts manually (Actions > Sites > Run workflow).
+name: Sites
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - pages/**
+      - avatar/mark.svg
+      - tools/site.sh
+      - .github/workflows/site.yml
+      - .github/workflows/sites.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  list:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      repos: ${{ steps.list.outputs.repos }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - run: pip install pyyaml
+      - id: list
+        run: echo "repos=$(python3 pages/suite.py sites)" >> "$GITHUB_OUTPUT"
+
+  rebuild:
+    needs: list
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        repo: ${{ fromJSON(needs.list.outputs.repos) }}
+    steps:
+      - name: Build the site of ${{ matrix.repo }} again
+        env:
+          GH_TOKEN: ${{ secrets.DMODEM_BUMP_TOKEN }}
+          REPO: ${{ matrix.repo }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::No DMODEM_BUMP_TOKEN secret (see this workflow's header): the site of $REPO is not built again"
+            exit 0
+          fi
+          if ! gh api "repos/$REPO/actions/workflows/pages.yml/dispatches" -f ref=main; then
+            echo "::error::Cannot start the Pages workflow of $REPO: the token needs Actions: read and write on it, and the repository needs .github/workflows/pages.yml with workflow_dispatch"
+            exit 1
+          fi
+          echo "Started the Pages workflow of $REPO (brand ${GITHUB_SHA:0:7})"

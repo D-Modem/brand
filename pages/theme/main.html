@@ -1,14 +1,15 @@
 {#- The D-Modem sites' theme: Zensical's with the suite's bar on top and the
-    repository's Rainbow Book as its accent (extra.repo in mkdocs.yml). -#}
+    repository's colour from pages/suite.yml as its accent (extra.repo in mkdocs.yml). -#}
 {% extends "base.html" %}
 
 {% block extrahead %}
-  {%- set books = {
-    "D-Modem": "#ff4d5e", "hardware": "#ff8a3d", "app": "#ffd23d",
-    "login": "#3ddc84", "bbs": "#3d8bff", "go3270": "#a66bff",
-    "gui": "#c8102e", "brand": "#f2f4fa", "D-Modem.github.io": "#3dff9a"
-  } -%}
-  <style>:root { --suite-accent: {{ books[config.extra.repo] or "#3dff9a" }}; }</style>
+  {#- the colour of each core repository (pages/suite.yml, as extra.suite);
+      the suite's own site, and a site not in the list, have the carrier green #}
+  {%- set ns = namespace(accent="#3dff9a") -%}
+  {%- for site in config.extra.suite or [] if site.name == config.extra.repo -%}
+    {%- set ns.accent = site.colour -%}
+  {%- endfor %}
+  <style>:root { --suite-accent: {{ ns.accent }}; }</style>
   {%- if config.extra.repo == "D-Modem.github.io" %}
   {#- the suite's own site: the header's edge striped in all six Books, like the mark #}
   <style>.md-header { border-bottom: 4px solid transparent; border-image: linear-gradient(90deg,

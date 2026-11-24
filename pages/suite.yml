@@ -1,0 +1,84 @@
+# The core repositories of the D-Modem suite. This list is the only source
+# for:
+#
+#   - the bar across the top of each D-Modem site (pages/theme/partials/suite.html);
+#   - the accent colour of each site (pages/theme/main.html);
+#   - the cards of "The suite" on https://d-modem.github.io/ (the
+#     <!-- suite:cards --> line in a page, pages/suite.py).
+#
+# Put only the core repositories here. A repository that is not in this
+# list can have a site, but the bar and the home page do not show it.
+#
+# When this file changes on main, .github/workflows/sites.yml builds each
+# site again (each repository in this list, and D-Modem.github.io).
+#
+# The keys of each entry:
+#
+#   name    The name of the repository in the D-Modem organization. Its
+#           site is https://d-modem.github.io/<name>/.
+#   title   The text that the bar shows when the pointer is on the name.
+#   colour  The Book colour of the repository (#rrggbb). It must agree
+#           with REPOS in tools/gen.py (python3 tools/brand_ref.py --check).
+#   card    The text of the card on the home page, in Markdown.
+#
+# The order of the list is the order of the bar and of the cards.
+repos:
+  - name: D-Modem
+    title: The softmodem
+    colour: "#ff4d5e"
+    card: |
+      The softmodem: V.92 down to Bell 103, class 1, 2 and 2.0 fax, V.42 and
+      V.44. `dmodemd` connects it to a SIP line. Modules put it in Asterisk,
+      FreeSWITCH and FreePBX. It runs on Linux, Windows, macOS and Haiku.
+
+  - name: app
+    title: Android and iOS app
+    colour: "#ffd23d"
+    card: |
+      The D-Modem app for Android and iOS: a modem that uses a SIP call as
+      its phone line. It has a terminal, a dialling directory, fax and
+      dial-up internet.
+
+  - name: gui
+    title: Desktop apps
+    colour: "#c8102e"
+    card: |
+      The D-Modem desktop apps: the modem, a phone, a terminal and SSH in a
+      window. They run on Windows 95 to Windows 11, macOS and Linux, with the
+      modem built in. Refer to [the site](https://d-modem.github.io/gui/) and
+      [download](https://d-modem.github.io/gui/download/) the nightly build.
+
+  - name: hardware
+    title: pico-serial boards
+    colour: "#ff8a3d"
+    card: |
+      pico-serial: open RP2040 boards that connect D-Modem to vintage serial
+      ports and to real telephone lines.
+
+  - name: login
+    title: Dial-in login and LDAP
+    colour: "#3ddc84"
+    card: |
+      dmodem-login: the login, the menu and the LDAP provider. Dial-up callers see it first.
+      Behind it, it can have PPP, a shell, the BBS or any other program.
+
+  - name: bbs
+    title: The BBS
+    colour: "#3d8bff"
+    card: |
+      A bulletin board in Go for telnet, SSH, TN3270 and modem callers, with
+      message areas, FidoNet, doors and file transfers.
+
+  - name: go3270
+    title: TN3270 library
+    colour: "#a66bff"
+    card: |
+      A Go library for TN3270 servers. It is the fork of racingmars/go3270
+      for the suite. bbs uses it to draw its 3270 screens.
+
+  - name: brand
+    title: Logos and colours
+    colour: "#f2f4fa"
+    card: |
+      The mark, the Rainbow Book colours, type, the naming guide, and the
+      theme that all D-Modem sites share.

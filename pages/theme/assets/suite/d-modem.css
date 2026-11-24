@@ -47,22 +47,10 @@
 .suite-bar a:hover, .suite-bar a:focus { color: var(--suite-text); }
 .suite-bar__home { font-weight: 700; color: var(--suite-text) !important; }
 .suite-bar a[aria-current="page"] { color: var(--suite-text); border-bottom: 2px solid var(--suite-accent); }
-.suite-bar a[data-repo="D-Modem"]:hover { color: #ff4d5e; }
-.suite-bar a[data-repo="hardware"]:hover { color: #ff8a3d; }
-.suite-bar a[data-repo="app"]:hover { color: #ffd23d; }
-.suite-bar a[data-repo="login"]:hover { color: #3ddc84; }
-.suite-bar a[data-repo="bbs"]:hover { color: #3d8bff; }
-.suite-bar a[data-repo="go3270"]:hover { color: #a66bff; }
-.suite-bar a[data-repo="gui"]:hover { color: #c8102e; }
-/* on the suite's own site the bar shows every repository in its colour */
-.suite-bar--rainbow a[data-repo="D-Modem"] { color: #ff4d5e; }
-.suite-bar--rainbow a[data-repo="hardware"] { color: #ff8a3d; }
-.suite-bar--rainbow a[data-repo="app"] { color: #ffd23d; }
-.suite-bar--rainbow a[data-repo="login"] { color: #3ddc84; }
-.suite-bar--rainbow a[data-repo="bbs"] { color: #3d8bff; }
-.suite-bar--rainbow a[data-repo="go3270"] { color: #a66bff; }
-.suite-bar--rainbow a[data-repo="gui"] { color: #c8102e; }
-.suite-bar--rainbow a[data-repo="brand"] { color: #f2f4fa; }
+/* each repository's colour (--repo-colour, from pages/suite.yml) when the
+   pointer is on it; on the suite's own site the bar shows them all */
+.suite-bar a[style]:hover, .suite-bar a[style]:focus,
+.suite-bar--rainbow a[style] { color: var(--repo-colour); }
 
 /* landing pages: a grid of cards (<div class="grid cards" markdown>) */
 .md-typeset .grid.cards > ul > li { border-left: 3px solid var(--suite-accent); }

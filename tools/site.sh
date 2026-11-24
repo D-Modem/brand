@@ -18,10 +18,17 @@ mkdir -p .site
 cp -R "$brand/pages/theme" .site/theme
 cp "$brand/pages/mkdocs-base.yml" .site/mkdocs-base.yml
 cp "$brand/avatar/mark.svg" .site/theme/assets/suite/mark.svg
+# the core repositories of the suite (pages/suite.yml): the bar, the accent
+python3 "$brand/pages/suite.py" base .
 # a site built from a copy of docs/ (docs_dir: .site/docs): the copy, its
 # home page the README and its links out of docs/ to GitHub
 if grep -q '^docs_dir: *\.site/docs' mkdocs.yml 2>/dev/null; then
 	python3 "$brand/pages/site_docs.py" .
+	# "<!-- suite:cards -->": the cards of the suite's core repositories
+	python3 "$brand/pages/suite.py" cards .
+elif grep -rqs '<!-- *suite:cards *-->' docs; then
+	echo "tools/site.sh: a page has <!-- suite:cards -->, thus mkdocs.yml must have docs_dir: .site/docs" >&2
+	exit 1
 fi
 case $what in
 prepare) ;;

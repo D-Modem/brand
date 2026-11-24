@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """docs/reference.md from the code: each repository's Book, colour, icon and
 taglines (REPOS in tools/gen.py), the palette, and tools/art.py's command
-line. It also checks that the sites' theme (pages/theme/main.html) gives
-each repository the colour gen.py does.
+line. It also checks that the list of the suite's core repositories
+(pages/suite.yml, which the sites' theme uses) gives each repository the
+colour gen.py does, and that each of them is in gen.py.
 
     python3 tools/brand_ref.py           writes the page
     python3 tools/brand_ref.py --check   exit 1 if it is out of date, or the theme disagrees
@@ -17,7 +18,7 @@ import art  # noqa: E402
 import gen  # noqa: E402
 
 OUT = os.path.join(gen.ROOT, "docs", "reference.md")
-THEME = os.path.join(gen.ROOT, "pages", "theme", "main.html")
+SUITE = os.path.join(gen.ROOT, "pages", "suite.yml")
 
 
 def cell(s):
@@ -29,15 +30,19 @@ def swatch(color):
     return '<span class="suite-swatch" style="background:%s"></span> `%s`' % (color, color)
 
 
+# Return the problems of pages/suite.yml: a core repository that is not in
+# REPOS of tools/gen.py, or that has a different colour there.
 def theme_problems():
-    text = open(THEME, encoding="utf-8").read()
-    m = re.search(r"set books = \{(.*?)\}", text, re.S)
-    books = dict(re.findall(r'"([^"]+)":\s*"(#[0-9a-fA-F]{6})"', m.group(1))) if m else {}
+    sys.path.insert(0, os.path.join(gen.ROOT, "pages"))
+    import suite  # noqa: E402
     out = []
-    for name, r in gen.REPOS.items():
-        if books.get(name, "").lower() != r["color"].lower():
-            out.append("pages/theme/main.html gives %s %s, tools/gen.py %s"
-                       % (name, books.get(name, "no colour"), r["color"]))
+    for r in suite.load(SUITE):
+        name = r["name"]
+        if name not in gen.REPOS:
+            out.append("pages/suite.yml has %s, tools/gen.py REPOS does not" % name)
+        elif gen.REPOS[name]["color"].lower() != r["colour"].lower():
+            out.append("pages/suite.yml gives %s %s, tools/gen.py %s"
+                       % (name, r["colour"], gen.REPOS[name]["color"]))
     return out
 
 
