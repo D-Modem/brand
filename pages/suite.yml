@@ -40,12 +40,12 @@ repos:
       dial-up internet.
 
   - name: gui
-    title: Desktop apps
+    title: Desktop app
     colour: "#c8102e"
     card: |
-      The D-Modem desktop apps: the modem, a phone, a terminal and SSH in a
-      window. They run on Windows 95 to Windows 11, macOS and Linux, with the
-      modem built in. Refer to [the site](https://d-modem.github.io/gui/) and
+      The D-Modem desktop app: the modem, a phone, a terminal and SSH in a
+      window. It is one Win32 app for Windows 95 to Windows 11, macOS and
+      Linux, with the modem built in. Refer to [the site](https://d-modem.github.io/gui/) and
       [download](https://d-modem.github.io/gui/download/) the nightly build.
 
   - name: hardware
