@@ -69,13 +69,6 @@ repos:
       A bulletin board in Go for telnet, SSH, TN3270 and modem callers, with
       message areas, FidoNet, doors and file transfers.
 
-  - name: go3270
-    title: TN3270 library
-    colour: "#a66bff"
-    card: |
-      A Go library for TN3270 servers. It is the fork of racingmars/go3270
-      for the suite. bbs uses it to draw its 3270 screens.
-
   - name: brand
     title: Logos and colours
     colour: "#f2f4fa"

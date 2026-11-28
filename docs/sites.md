@@ -33,7 +33,9 @@ the only location of this data. The list gives:
   the line `<!-- suite:cards -->` gets the cards in place of this line.
 
 Put only the core repositories in the list. A repository that is not in the
-list can have a site, but the bar and the home page do not show it.
+list can have a site, but the bar and the home page do not show it. A
+support library, for example go3270, is not a core repository. Its site
+has the carrier green as its accent.
 
 Each entry has these keys:
 
@@ -69,8 +71,18 @@ continue.
    `DMODEM_BUMP_TOKEN` secret, with **Actions: read and write**.
 6. Merge the pull request. The Sites workflow builds each site again.
 
-To remove a core repository, remove its entry from `pages/suite.yml` and
-merge the pull request.
+To remove a core repository:
+
+1. Remove its entry from `pages/suite.yml`.
+2. Remove it from `REPOS` in `tools/gen.py`, and remove its rules from
+   `pages/theme/assets/suite/d-modem.css`. Its Book is then free.
+3. Run `python3 tools/brand_ref.py`.
+4. Remove its row from the suite table of each README
+   ([readme-template.md](readme-template.md)).
+5. Merge the pull request. The Sites workflow builds each site again.
+   The Sites workflow does not build the site of the removed repository.
+   Start the Pages workflow of that repository manually, so that its bar
+   does not show it.
 
 ## A repository's site
 

@@ -46,6 +46,14 @@ def theme_problems():
     return out
 
 
+# Return the Books that no repository in REPOS of tools/gen.py uses, as
+# (name, colour) pairs: the Rainbow Books first, then the other free Books.
+def free_books():
+    used = {r["book"] for r in gen.REPOS.values()}
+    books = [(n, c) for n, _, c in gen.BOOKS] + list(art.FREE.items())
+    return [(n, c) for n, c in books if n not in used]
+
+
 def usage():
     rows = []
     for a in art.parser()._actions:
@@ -95,7 +103,7 @@ def page():
     b += ["\nThe free Books, for a repository that does not have a Book yet "
           "(`tools/art.py --book`):\n\n",
           "| Book | colour |\n|---|---|\n"]
-    for n, c in art.FREE.items():
+    for n, c in free_books():
         b.append("| %s | %s |\n" % (n, swatch(c)))
     b += ["\n### The other colours\n\n", "| name | colour | use |\n|---|---|---|\n"]
     for n, use in (("BG", "background"), ("BG2", "the second shade of the background"),

@@ -14,7 +14,6 @@ The Rainbow Book of each repository is its accent: on its banner, its social pre
 | `app` | Yellow (CD-ROM) | <span class="suite-swatch" style="background:#ffd23d"></span> `#ffd23d` | `phone` | A dial-up modem in your pocket | Android/iOS app: V.92 over a SIP call. | Android, Kotlin, NDK, V.92 |
 | `hardware` | Orange (CD-R/RW) | <span class="suite-swatch" style="background:#ff8a3d"></span> `#ff8a3d` | `chip` | Open source hardware modem designs | pico-serial: RP2040 serial and phone-line USB sticks. | RP2040, DB25, USB-C, CERN-OHL-S |
 | `bbs` | Blue (CD Extra) | <span class="suite-swatch" style="background:#3d8bff"></span> `#3d8bff` | `bbs` | A bulletin board for every caller | Telnet, TN3270 and modem callers, in Go. | Go, ANSI, TN3270, Doors |
-| `go3270` | Purple (DDCD) | <span class="suite-swatch" style="background:#a66bff"></span> `#a66bff` | `3270` | Go servers for 3270 terminals | Build TN3270 data streams from fields. | Go, TN3270, EBCDIC |
 | `login` | Green (CD-i) | <span class="suite-swatch" style="background:#3ddc84"></span> `#3ddc84` | `menu` | User login and management for dial-up callers | dmodem-login: a login, then the BBS, PPP or a shell. | Go, PAM, LDAP, SQL, PPP |
 | `gui` | Scarlet | <span class="suite-swatch" style="background:#c8102e"></span> `#c8102e` | `gui` | D-Modem on the desktop | Native GUIs for the modem, its terminal and fax. | Windows, macOS, Linux, Desktop |
 | `brand` | White | <span class="suite-swatch" style="background:#f2f4fa"></span> `#f2f4fa` | `books` | Logos, colours and type | The mark, the Rainbow Books, Sauce Code Pro. | SVG, PNG, Rainbow Books, Sauce Code Pro |
@@ -39,8 +38,8 @@ The free Books, for a repository that does not have a Book yet (`tools/art.py --
 
 | Book | colour |
 |---|---|
+| Purple | <span class="suite-swatch" style="background:#a66bff"></span> `#a66bff` |
 | Beige | <span class="suite-swatch" style="background:#d9c7a0"></span> `#d9c7a0` |
-| White | <span class="suite-swatch" style="background:#f2f4fa"></span> `#f2f4fa` |
 
 ### The other colours
 
