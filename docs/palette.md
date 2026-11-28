@@ -2,7 +2,7 @@
 
 ## Palette
 
-Each repository has one Rainbow Book. The color of the Book is the accent on
+Each core repository has one Rainbow Book. The color of the Book is the accent on
 the social preview of the repository. It is also the color of the spine on
 the left edge of the preview. The spine shows the full name of the
 repository.
@@ -14,11 +14,13 @@ repository.
 | Yellow | CD-ROM | `#ffd23d` | [app](https://github.com/D-Modem/app) |
 | Green | CD-i | `#3ddc84` | [login](https://github.com/D-Modem/login) |
 | Blue | CD Extra | `#3d8bff` | [bbs](https://github.com/D-Modem/bbs) |
-| Purple | DDCD | `#a66bff` | [go3270](https://github.com/D-Modem/go3270) |
+| Purple | DDCD | `#a66bff` | Free |
 | Scarlet | SACD | `#c8102e` | [gui](https://github.com/D-Modem/gui) |
 | White | Video CD | `#f2f4fa` | [brand](https://github.com/D-Modem/brand) |
 
-Beige (Photo CD) is available for a future repository.
+Purple (DDCD) and Beige (Photo CD) are available for a future core
+repository. A support library, for example
+[go3270](https://github.com/D-Modem/go3270), does not get a Book.
 
 Neutrals: background `#0a0f1c`, panel `#121a2e`, text `#e8f0ff`, muted
 `#7f8bab`. Type: Sauce Code Pro, the [Nerd Fonts](https://www.nerdfonts.com/) build of

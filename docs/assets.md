@@ -6,9 +6,8 @@
 | --- | --- |
 | ![D-Modem](../social/D-Modem.png) | ![hardware](../social/hardware.png) |
 | ![app](../social/app.png) | ![login](../social/login.png) |
-| ![bbs](../social/bbs.png) | ![go3270](../social/go3270.png) |
-| ![gui](../social/gui.png) | ![brand](../social/brand.png) |
-| ![suite](../social/suite.png) | |
+| ![bbs](../social/bbs.png) | ![gui](../social/gui.png) |
+| ![brand](../social/brand.png) | ![suite](../social/suite.png) |
 
 ## README banners
 

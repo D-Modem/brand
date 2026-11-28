@@ -12,7 +12,7 @@ Use these names in READMEs, docs, wiki pages, UI text and commit messages.
 | pico-serial | [D-Modem/hardware](https://github.com/D-Modem/hardware) | The board family. For the repository, write "the hardware repository" |
 | dmodem-login | [D-Modem/login](https://github.com/D-Modem/login) | The program: the login, the menu and the LDAP provider. For the repository, write "the login repository" |
 | bbs | [D-Modem/bbs](https://github.com/D-Modem/bbs) | |
-| go3270 | [D-Modem/go3270](https://github.com/D-Modem/go3270) | Our fork of [racingmars/go3270](https://github.com/racingmars/go3270). Go module `github.com/D-Modem/go3270` |
+| go3270 | [D-Modem/go3270](https://github.com/D-Modem/go3270) | Our fork of [racingmars/go3270](https://github.com/racingmars/go3270). Go module `github.com/D-Modem/go3270`. A support library, not a core repository |
 | brand | [D-Modem/brand](https://github.com/D-Modem/brand) | |
 
 Link to a repository with its full URL, `https://github.com/D-Modem/<repo>`.
